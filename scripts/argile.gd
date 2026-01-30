@@ -1,6 +1,9 @@
 extends Sprite2D
 
-# --- Textures ---
+
+@onready var rqst: Sprite2D = $"../requests/rqst_spr"
+
+
 var argile0
 var argile_left1
 var argile_right1
@@ -12,78 +15,72 @@ var argile_up_right
 var argile_up_up
 var argile_up_down
 
-var current_state = "center"
+
+var current_state := "center"
 
 
-var up_pressed = false
-var down_pressed = false
-var left_pressed = false
-var right_pressed = false
+var up_pressed := false
+var down_pressed := false
+var left_pressed := false
+var right_pressed := false
 
 
 func _ready():
 	argile0 = load("res://sprites/argile/argile0.png")
-	argile_left1 = load("res://sprites/argile/argile_left1.png")
-	argile_right1 = load("res://sprites/argile/argile_right1.png")
-	argile_up1 = load("res://sprites/argile/argile_up1.png")
-	argile_down1 = load("res://sprites/argile/argile_down1.png")
+	argile_left1 = load("res://sprites/argile/argile_left.png")
+	argile_right1 = load("res://sprites/argile/argile_right.png")
+	argile_up1 = load("res://sprites/argile/argile_up.png")
+	argile_down1 = load("res://sprites/argile/argile_down.png")
 
 	argile_up_left = load("res://sprites/argile/argile_upleft.png")
 	argile_up_right = load("res://sprites/argile/argile_upright.png")
 	argile_up_up = load("res://sprites/argile/argile_upup.png")
 	argile_up_down = load("res://sprites/argile/argile_updown.png")
 
-	texture = argile0
-	current_state = "center"
+	reset_argile()
 
 
-func _process(delta):
-	var dir = ""
+func _process(_delta):
+	var mdr := ""
 
 	if Input.is_action_just_pressed("ui_left") or left_pressed:
-		dir = "left"
+		mdr = "left"
 	elif Input.is_action_just_pressed("ui_right") or right_pressed:
-		dir = "right"
+		mdr = "right"
 	elif Input.is_action_just_pressed("ui_up") or up_pressed:
-		dir = "up"
+		mdr = "up"
 	elif Input.is_action_just_pressed("ui_down") or down_pressed:
-		dir = "down"
+		mdr = "down"
 
-	if dir != "":
-		apply_direction(dir)
+	if mdr != "":
+		apply_direction(mdr)
 		reset_buttons()
 
 
-func apply_direction(dir):
-	#from 0
-	if current_state == "center":
-		if dir == "left":
-			texture = argile_left1
-			current_state = "left"
-		elif dir == "right":
-			texture = argile_right1
-			current_state = "right"
-		elif dir == "up":
-			texture = argile_up1
-			current_state = "up"
-		elif dir == "down":
-			texture = argile_down1
-			current_state = "down"
+func apply_direction(mdr: String):
+	if !rqst: 
+		return
+	var result = rqst.register_input(mdr)
+	
+	var seq = rqst.player_sequence
+	var sequence_name = "".join(seq) 
+	var path = "res://sprites/argile/argile_%s.png" % sequence_name
+	
+	if ResourceLoader.exists(path):
+		texture = load(path)
+	else:
+		var fallback_path = "res://sprites/argile/argile_%s.png" % mdr
+		if ResourceLoader.exists(fallback_path):
+			texture = load(fallback_path)
 
-	#from up
-	elif current_state == "up":
-		if dir == "left":
-			texture = argile_up_left
-			current_state = "up_left"
-		elif dir == "right":
-			texture = argile_up_right
-			current_state = "up_right"
-		elif dir == "up":
-			texture = argile_up_up
-			current_state = "up_up"
-		elif dir == "down":
-			texture = argile_up_down
-			current_state = "up_down"
+	if result == "success" or result == "fail":
+		reset_argile()
+
+
+func reset_argile():
+	texture = argile0
+	current_state = "center"
+	reset_buttons()
 
 
 func reset_buttons():
@@ -93,20 +90,8 @@ func reset_buttons():
 	right_pressed = false
 
 
-func _on_btn_up_pressed() -> void:
-	up_pressed = true
-
-func _on_btn_down_pressed() -> void:
-	down_pressed = true
-
-func _on_btn_left_pressed() -> void:
-	left_pressed = true
-
-func _on_btn_right_pressed() -> void:
-	right_pressed = true
-
-
-func _on_clear_pressed() -> void:
-	texture = argile0
-	current_state = "center"
-	reset_buttons()
+func _on_btn_up_pressed(): up_pressed = true
+func _on_btn_down_pressed(): down_pressed = true
+func _on_btn_left_pressed(): left_pressed = true
+func _on_btn_right_pressed(): right_pressed = true
+func _on_clear_pressed(): reset_argile()

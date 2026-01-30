@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi067w2pb2lhx"
-path="res://.godot/imported/argile_down1.png-b8dcbd9518106909053c62fe8eee4ea0.ctex"
+uid="uid://cr4w6qnnrujhi"
+path="res://.godot/imported/pot3.png-60a85bb9d9d1ff58ae4f720ad3921a70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/argile/argile_down1.png"
-dest_files=["res://.godot/imported/argile_down1.png-b8dcbd9518106909053c62fe8eee4ea0.ctex"]
+source_file="res://sprites/pots/pot3.png"
+dest_files=["res://.godot/imported/pot3.png-60a85bb9d9d1ff58ae4f720ad3921a70.ctex"]
 
 [params]
 
