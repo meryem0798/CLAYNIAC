@@ -11,5 +11,15 @@ config_version=5
 [application]
 
 config/name="floww"
+run/main_scene="uid://n7jfo7bmlc0x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

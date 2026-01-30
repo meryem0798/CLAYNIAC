@@ -1,3 +1,69 @@
-[gd_scene format=3 uid="uid://n7jfo7bmlc0x"]
+[gd_scene load_steps=10 format=3 uid="uid://n7jfo7bmlc0x"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://dwx2siqib0r6o" path="res://scripts/main.gd" id="1_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dilswdsk61vvr" path="res://sprites/request_square.png" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://yxhqf3iakfgc" path="res://sprites/bgs/bg.png" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://3qf7ucdw6y0c" path="res://sprites/pots/pot1.png" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://du5grqwtqqvvf" path="res://sprites/truc_argile.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile0.png" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://c44ga75m2n8io" path="res://sprites/character/stickman1.png" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://o43imcl2w3e2" path="res://sprites/character/left_arm1.png" id="7_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dxe0donrrbyh3" path="res://sprites/character/right_arm1.png" id="8_choun"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_85g3d")
+
+[node name="bg" type="TextureRect" parent="."]
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_tbgi4")
+
+[node name="bg2" type="TextureRect" parent="."]
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_tbgi4")
+
+[node name="requests" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 162.0
+offset_bottom = 144.0
+
+[node name="requestsquare" type="TextureRect" parent="requests"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 572.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_sugp2")
+
+[node name="rqst_spr" type="Sprite2D" parent="requests"]
+texture_filter = 1
+position = Vector2(76, 62)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_jyhfs")
+
+[node name="truc" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(387, 351)
+texture = ExtResource("3_tbgi4")
+
+[node name="body_char" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(402, 354)
+texture = ExtResource("5_tipki")
+
+[node name="argile" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(397, 348)
+texture = ExtResource("5_tefeu")
+
+[node name="leftarm" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(405, 349)
+texture = ExtResource("7_85g3d")
+
+[node name="rightarm" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(408, 355)
+texture = ExtResource("8_choun")
