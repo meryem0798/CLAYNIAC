@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://n7jfo7bmlc0x"]
+[gd_scene load_steps=24 format=3 uid="uid://n7jfo7bmlc0x"]
 
 [ext_resource type="Texture2D" uid="uid://dilswdsk61vvr" path="res://sprites/request_square.png" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_ya4ey"]
@@ -9,15 +9,112 @@
 [ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="6_trceg"]
 [ext_resource type="Script" uid="uid://de5vybmcg0dhg" path="res://scripts/argile.gd" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://inp2qbgx1pr" path="res://sprites/bgs/hands.png" id="10_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dktp50or36l47" path="res://sprites/bgs/hands2.png" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://c1ubbw3k4p6my" path="res://sprites/bgs/handsleft.png" id="11_trceg"]
+[ext_resource type="Texture2D" uid="uid://dnspwrbp3881o" path="res://sprites/bgs/handsright.png" id="12_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://x1pmqbmifmrx" path="res://sprites/bgs/handsup.png" id="13_jkv2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("10_choun")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("11_trceg")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("12_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("13_jkv2x")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}],
+"loop": false,
+"name": &"down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}],
+"loop": false,
+"name": &"left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}],
+"loop": false,
+"name": &"right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc10j")
+}],
+"loop": false,
+"name": &"up",
+"speed": 3.0
+}]
 
 [node name="main" type="Node2D"]
 
 [node name="bg" type="TextureRect" parent="."]
+texture_filter = 1
 offset_right = 807.0
 offset_bottom = 610.0
 texture = ExtResource("1_ya4ey")
 
 [node name="bg2" type="TextureRect" parent="."]
+texture_filter = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_eb6dy")
@@ -29,6 +126,7 @@ offset_right = 162.0
 offset_bottom = 144.0
 
 [node name="requestsquare" type="TextureRect" parent="requests"]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_right = 644.0
@@ -38,8 +136,8 @@ texture = ExtResource("1_sugp2")
 
 [node name="rqst_spr" type="Sprite2D" parent="requests"]
 texture_filter = 1
-position = Vector2(76, 62)
-scale = Vector2(0.3, 0.3)
+position = Vector2(67, 129)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_jyhfs")
 script = ExtResource("5_ya4ey")
 
@@ -55,10 +153,12 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_tefeu")
 script = ExtResource("8_ya4ey")
 
-[node name="arms" type="Sprite2D" parent="."]
+[node name="arms" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(278, 334)
-texture = ExtResource("10_a8y0u")
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+animation = &"up"
+autoplay = "default"
 
 [node name="undo" type="Button" parent="."]
 offset_left = 710.0
@@ -102,6 +202,7 @@ offset_right = 108.0
 offset_bottom = 373.0
 text = "down"
 
+[connection signal="pressed" from="undo" to="argile" method="_on_undo_pressed"]
 [connection signal="pressed" from="clear" to="requests/rqst_spr" method="_on_clear_pressed"]
 [connection signal="pressed" from="clear" to="argile" method="_on_clear_pressed"]
 [connection signal="pressed" from="btn_up" to="requests/rqst_spr" method="_on_btn_up_pressed"]

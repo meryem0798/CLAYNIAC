@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://butquomiv6fai"]
+
+[ext_resource type="Script" uid="uid://8s2xicrsrv30" path="res://scripts/final.gd" id="1_op64y"]
+[ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_qkvop"]
+[ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_op64y"]
+[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="4_gh6hq"]
+[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="4_y0die"]
+
+[node name="final" type="Node2D"]
+script = ExtResource("1_op64y")
+
+[node name="bg" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_qkvop")
+
+[node name="bg2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_op64y")
+
+[node name="truc" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(396, 207)
+texture = ExtResource("4_y0die")
+
+[node name="argilelol2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(399, 168)
+scale = Vector2(3, 3)
+texture = ExtResource("4_gh6hq")

@@ -1,0 +1,227 @@
+[gd_scene load_steps=22 format=3 uid="uid://op6wimbh5dnr"]
+
+[ext_resource type="Script" uid="uid://kap7dbfhvt6s" path="res://scenes/paint.gd" id="1_gm6b1"]
+[ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_vhmiv"]
+[ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_yiwe3"]
+[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="3_8nnhm"]
+[ext_resource type="Texture2D" uid="uid://inp2qbgx1pr" path="res://sprites/bgs/hands.png" id="4_8d07b"]
+[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="4_gm6b1"]
+[ext_resource type="Texture2D" uid="uid://dktp50or36l47" path="res://sprites/bgs/hands2.png" id="5_l0185"]
+[ext_resource type="Texture2D" uid="uid://c1ubbw3k4p6my" path="res://sprites/bgs/handsleft.png" id="6_gm6b1"]
+[ext_resource type="Texture2D" uid="uid://dnspwrbp3881o" path="res://sprites/bgs/handsright.png" id="7_xtu5c"]
+[ext_resource type="Texture2D" uid="uid://x1pmqbmifmrx" path="res://sprites/bgs/handsup.png" id="8_34h7g"]
+[ext_resource type="Texture2D" uid="uid://3qf7ucdw6y0c" path="res://sprites/pots/pot1.png" id="11_xtu5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("4_8d07b")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("5_l0185")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("4_8d07b")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj1t"]
+atlas = ExtResource("6_gm6b1")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("4_8d07b")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("7_xtu5c")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ld40"]
+atlas = ExtResource("4_8d07b")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmmt"]
+atlas = ExtResource("8_34h7g")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc10j"]
+atlas = ExtResource("4_8d07b")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfc6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}],
+"loop": false,
+"name": &"down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muem4")
+}],
+"loop": false,
+"name": &"left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ld40")
+}],
+"loop": false,
+"name": &"right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqmmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc10j")
+}],
+"loop": false,
+"name": &"up",
+"speed": 3.0
+}]
+
+[node name="paint" type="Node2D"]
+script = ExtResource("1_gm6b1")
+
+[node name="bg" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_vhmiv")
+
+[node name="bg2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_yiwe3")
+
+[node name="truc" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(396, 207)
+texture = ExtResource("4_gm6b1")
+
+[node name="argilelol" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(399, 168)
+scale = Vector2(3, 3)
+texture = ExtResource("3_8nnhm")
+
+[node name="arms" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(278, 334)
+sprite_frames = SubResource("SpriteFrames_wfc6h")
+autoplay = "default"
+
+[node name="paintbutton" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 467.0
+offset_right = 446.0
+offset_bottom = 498.0
+text = "PAINT"
+
+[node name="DrawWindow" type="PopupPanel" parent="."]
+position = Vector2i(0, 9)
+size = Vector2i(508, 508)
+
+[node name="DrawArea" type="TextureRect" parent="DrawWindow"]
+visible = false
+texture_filter = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 504.0
+offset_bottom = 504.0
+texture = ExtResource("3_8nnhm")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+offset_left = 97.0
+offset_top = 128.0
+offset_right = 166.0
+offset_bottom = 193.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(273, 361, 275, 333, 277, 322, 284, 305, 291, 288, 296, 280, 308, 266, 317, 260, 333, 249, 347, 240, 368, 237, 382, 232, 394, 225, 405, 217, 427, 215, 440, 219, 459, 223, 485, 249, 507, 274, 527, 299, 527, 314, 534, 340, 535, 357, 530, 375, 507, 391, 472, 390, 451, 398, 405, 398, 345, 394, 323, 398, 304, 400, 274, 391, 272, 383, 272, 367)
+
+[node name="done" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 523.0
+offset_right = 445.0
+offset_bottom = 554.0
+text = "DONE"
+
+[node name="brush" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 555.0
+offset_right = 75.0
+offset_bottom = 586.0
+text = "brush"
+
+[node name="eraser" type="Button" parent="."]
+offset_left = 730.0
+offset_top = 559.0
+offset_right = 788.0
+offset_bottom = 590.0
+text = "eraser"
+
+[node name="small" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 254.0
+offset_right = 69.0
+offset_bottom = 285.0
+text = "small"
+
+[node name="medium" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 293.0
+offset_right = 94.0
+offset_bottom = 324.0
+text = "medium"
+
+[node name="big" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 336.0
+offset_right = 55.0
+offset_bottom = 367.0
+text = "big
+"
+
+[node name="rqst_spr3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(67, 129)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_xtu5c")
+
+[connection signal="pressed" from="paintbutton" to="." method="_on_paintbutton_pressed"]
+[connection signal="gui_input" from="DrawWindow/DrawArea" to="." method="_on_draw_area_gui_input"]
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="brush" to="." method="_on_brush_pressed"]
+[connection signal="pressed" from="eraser" to="." method="_on_eraser_pressed"]
+[connection signal="pressed" from="small" to="." method="_on_small_pressed"]
+[connection signal="pressed" from="medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="big" to="." method="_on_big_pressed"]

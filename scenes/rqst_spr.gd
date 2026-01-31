@@ -47,33 +47,51 @@ func register_input(dir: String) -> String:
 	return check_sequence()
 
 func check_sequence() -> String:
-	var i = player_sequence.size() - 1
+	#var i = player_sequence.size() - 1
 	var combos = pots[current_pot]  
 
 	var still_possible = false
 	for seq in combos:
-		if i < seq.size() and player_sequence[i] == seq[i]:
-			still_possible = true
-			break
-
-	if not still_possible:
-		fail()
-		
-
-	for seq in combos:
 		if player_sequence == seq:
 			success()
 			return "success"
+		#break
+
+	#if not still_possible:
+	#	fail()
+		
+
+	#for seq in combos:
+	#	if player_sequence == seq:
+	#		success()
+	#		return "success"
 
 	return "continue"
 
 func success():
 	print("gg ")
-	argile.texture = self.texture 
-	argile.texture = argile0_texture
-	pick_random_pot()
+	var seq = player_sequence
+	var sequence_name = "".join(seq) 
+	var path = "res://sprites/argile/argile_%s.png" % sequence_name
+	
+	if ResourceLoader.exists(path):
+		argile.texture = load(path)
+	
+	GameManager.argile_texture = argile.texture
+	GameManager.pot_demande = self.texture
+
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://scenes/oven.tscn")
 
 func fail():
 	print("nn mdr")
-	player_sequence.clear()
+	#player_sequence.clear()
 	#argile.texture = argile0_texture
+	
+func undo_sequence():
+	if player_sequence.size() > 0:
+		player_sequence.pop_back()
+
+
+func _on_clear_pressed() -> void:
+	player_sequence.clear()
