@@ -202,6 +202,13 @@ offset_right = 108.0
 offset_bottom = 373.0
 text = "down"
 
+[node name="finish" type="Button" parent="."]
+offset_left = 380.0
+offset_top = 530.0
+offset_right = 440.0
+offset_bottom = 561.0
+text = "FINISH"
+
 [connection signal="pressed" from="undo" to="argile" method="_on_undo_pressed"]
 [connection signal="pressed" from="clear" to="requests/rqst_spr" method="_on_clear_pressed"]
 [connection signal="pressed" from="clear" to="argile" method="_on_clear_pressed"]
@@ -213,3 +220,4 @@ text = "down"
 [connection signal="pressed" from="btn_right" to="argile" method="_on_btn_right_pressed"]
 [connection signal="pressed" from="btn_down" to="requests/rqst_spr" method="_on_btn_down_pressed"]
 [connection signal="pressed" from="btn_down" to="argile" method="_on_btn_down_pressed"]
+[connection signal="pressed" from="finish" to="requests/rqst_spr" method="_on_finish_pressed"]

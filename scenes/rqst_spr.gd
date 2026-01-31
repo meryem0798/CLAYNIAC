@@ -44,29 +44,20 @@ func register_input(dir: String) -> String:
 			return "continue"
 	
 	player_sequence.append(dir)
-	return check_sequence()
+	if check_sequence():
+		return "success"
+	else:
+		return "continue"
 
-func check_sequence() -> String:
+func check_sequence() -> bool:
 	#var i = player_sequence.size() - 1
 	var combos = pots[current_pot]  
-
-	var still_possible = false
 	for seq in combos:
 		if player_sequence == seq:
-			success()
-			return "success"
-		#break
+			return true
+	return false
 
-	#if not still_possible:
-	#	fail()
-		
 
-	#for seq in combos:
-	#	if player_sequence == seq:
-	#		success()
-	#		return "success"
-
-	return "continue"
 
 func success():
 	print("gg ")
@@ -77,11 +68,9 @@ func success():
 	if ResourceLoader.exists(path):
 		argile.texture = load(path)
 	
-	GameManager.argile_texture = argile.texture
-	GameManager.pot_demande = self.texture
 
-	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://scenes/oven.tscn")
+
+
 
 func fail():
 	print("nn mdr")
@@ -95,3 +84,17 @@ func undo_sequence():
 
 func _on_clear_pressed() -> void:
 	player_sequence.clear()
+
+
+func _on_finish_pressed() -> void:
+	if check_sequence():
+		success()
+		
+		GameManager.argile_texture = argile.texture
+		GameManager.pot_demande = self.texture
+		
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://scenes/oven.tscn")
+	else:
+		fail()
+		print("et nannn")
