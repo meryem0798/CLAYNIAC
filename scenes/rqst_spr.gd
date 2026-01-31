@@ -1,60 +1,79 @@
 extends Sprite2D
 
+
+
+
+@onready var argile: Sprite2D = $"../../argile"
+
+var argile0_texture = preload("res://sprites/argile/argile0.png")
+
 var pots = {
-	"pot1": ["up", "down"],
-	"pot2": ["left", "right"],
-	"pot3": ["up", "up"],
-	"pot4": ["left", "up"],
-	"pot5": ["down", "down"]
+	"pot1": [["up", "down"], ["up", "up", "down"]],
+	"pot2": [["left", "right"], ["right", "left"]],
+	"pot3": [["up", "up"], ["down", "down"]],
+	"pot4": [["left", "up"], ["up", "left"]],
+	"pot5": [["down", "down"], ["up", "down"]]
 }
 
-var current_pot := ""
-var pot_sequence := []
-var player_sequence := []
-
+var current_pot := ""        
+var player_sequence := []    
 
 func _ready():
+	if argile:
+		argile.texture = argile0_texture
 	randomize()
 	pick_random_pot()
 
-
 func pick_random_pot():
 	var keys = pots.keys()
-	var new_pot = current_pot 
+	var new_pot = current_pot
 
 	while new_pot == current_pot and keys.size() > 1:
 		new_pot = keys[randi() % keys.size()]
-	
+
 	current_pot = new_pot
-	pot_sequence = pots[current_pot]
 	player_sequence.clear()
 
-	texture = load("res://sprites/pots/%s.png" % current_pot)
-	print("pot:", current_pot, pot_sequence)
+	self.texture = load("res://sprites/pots/%s.png" % current_pot)
+	print("ok fait :", current_pot, pots[current_pot])
 
-
-func register_input(dir: String) -> String: 
+func register_input(dir: String) -> String:
+	if player_sequence.size() == 0:
+		if argile.texture.resource_path != argile0_texture.resource_path:
+			print("nn reommence")
+			return "continue"
+	
 	player_sequence.append(dir)
-	return check_sequence() 
+	return check_sequence()
 
 func check_sequence() -> String:
-	var i := player_sequence.size() - 1
+	var i = player_sequence.size() - 1
+	var combos = pots[current_pot]  
 
-	if player_sequence[i] != pot_sequence[i]:
+	var still_possible = false
+	for seq in combos:
+		if i < seq.size() and player_sequence[i] == seq[i]:
+			still_possible = true
+			break
+
+	if not still_possible:
 		fail()
-		return "fail"
+		
 
-	if player_sequence.size() == pot_sequence.size():
-		success()
-		return "success"
-	
-	return "continue" 
+	for seq in combos:
+		if player_sequence == seq:
+			success()
+			return "success"
+
+	return "continue"
 
 func success():
-	print("yessss gg mec", current_pot)
+	print("gg ")
+	argile.texture = self.texture 
+	argile.texture = argile0_texture
 	pick_random_pot()
 
-
 func fail():
-	print("mdrnn")
+	print("nn mdr")
 	player_sequence.clear()
+	#argile.texture = argile0_texture

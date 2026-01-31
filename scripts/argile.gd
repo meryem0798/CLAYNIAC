@@ -74,6 +74,7 @@ func apply_direction(mdr: String):
 			texture = load(fallback_path)
 
 	if result == "success" or result == "fail":
+		await get_tree().create_timer(0.5).timeout
 		reset_argile()
 
 
