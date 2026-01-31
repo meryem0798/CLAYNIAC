@@ -93,8 +93,8 @@ func _on_finish_pressed() -> void:
 		GameManager.argile_texture = argile.texture
 		GameManager.pot_demande = self.texture
 		
-		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://scenes/oven.tscn")
+		await get_tree().create_timer(0.1).timeout
+		Transition.fade_to_scene("res://scenes/oven.tscn")
 	else:
 		fail()
 		print("et nannn")
