@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="floww"
-run/main_scene="uid://n7jfo7bmlc0x"
+run/main_scene="uid://b5cs3ck7u3ql5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

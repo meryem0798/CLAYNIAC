@@ -28,6 +28,6 @@ texture = ExtResource("4_y0die")
 
 [node name="argilelol2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(399, 168)
-scale = Vector2(3, 3)
+position = Vector2(402, 323)
+scale = Vector2(2, 2)
 texture = ExtResource("4_gh6hq")

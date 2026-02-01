@@ -2,9 +2,10 @@ extends Node2D
 
 @onready var argilelol: Sprite2D = $argilelol
 @onready var color_picker: ColorPickerButton = $ColorPickerButton
-@onready var area_2d: Area2D = $Area2D
+#@onready var area_2d: Area2D = $Area2D
 @onready var rqst_spr_3: Sprite2D = $rqst_spr3
-
+#@onready var area_2d: Area2D = $Area2D_Pot1
+var allowed_color : Color = Color("dce8e8")
 var draw_image: Image
 var draw_texture: ImageTexture
 var brush_color: Color = Color.BLACK
@@ -15,9 +16,10 @@ var original_image: Image
 var is_erasing: bool = false
 
 func _ready():
+	
 	rqst_spr_3.texture = GameManager.pot_demande
-	if GameManager.argile_texture: #je vais me tuer pq il fallait que je vérifie si l'e potargile' existe pr que ça marche????????
-		argilelol.texture = GameManager.argile_texture
+
+	argilelol.texture = GameManager.pot_demande
 
 
 	var temp_image = argilelol.texture.get_image()
@@ -27,7 +29,7 @@ func _ready():
 	draw_image = temp_image
 	draw_texture = ImageTexture.create_from_image(draw_image)
 	argilelol.texture = draw_texture
-	
+	#argilelol.self_modulate = Color.RED
 	
 	
 func _input(event: InputEvent) -> void:
@@ -51,19 +53,16 @@ func _input(event: InputEvent) -> void:
 			last_mouse_pos = local_pos
 
 func is_mouse_in_area() -> bool:
-	var mouse_pos = get_global_mouse_position()
+	var local_pos = get_local_mouse_pos_on_sprite()
+	var x = int(local_pos.x)
+	var y = int(local_pos.y)
 	
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = mouse_pos
-	query.collide_with_areas = true
-
+	if x < 0 or x >= original_image.get_width() or y < 0 or y >= original_image.get_height():
+		return false
+		
+	var pixel_color = original_image.get_pixel(x, y)
 	
-	var results = get_world_2d().direct_space_state.intersect_point(query)
-	
-	for res in results:
-		if res.collider == area_2d:
-			return true
-	return false
+	return pixel_color.a > 0.1 and pixel_color.is_equal_approx(allowed_color)
 
 func get_local_mouse_pos_on_sprite() -> Vector2:
 	var rect = argilelol.get_rect()
@@ -74,18 +73,19 @@ func draw_point(pos: Vector2):
 	var y = int(pos.y)
 	var half_size = brush_size / 2
 	
-	if is_erasing:
-		for i in range(-half_size, half_size):
-			for j in range(-half_size, half_size):
-				var px = x + i 
-				var py = y + j
+	for i in range(-half_size, half_size + 1):
+		for j in range(-half_size, half_size + 1):
+			var px = x + i
+			var py = y + j
+			
+			if px >= 0 and px < draw_image.get_width() and py >= 0 and py < draw_image.get_height():
+				var original_pixel_color = original_image.get_pixel(px, py)
 				
-				if px >= 0 and px < draw_image.get_width() and py >= 0 and py < draw_image.get_height():
-					var original_pixel = original_image.get_pixel(px, py)
-					draw_image.set_pixel(px, py, original_pixel)
-	else:
-		var rect = Rect2i(x - half_size, y - half_size, brush_size, brush_size)
-		draw_image.fill_rect(rect, brush_color)
+				if original_pixel_color.is_equal_approx(allowed_color):
+					if is_erasing:
+						draw_image.set_pixel(px, py, original_pixel_color)
+					else:
+						draw_image.set_pixel(px, py, brush_color)
 	
 	draw_texture.update(draw_image)
 
@@ -107,6 +107,7 @@ func _on_done_pressed() -> void:
 
 func _on_brush_pressed() -> void:
 	is_erasing = false
+	argilelol.self_modulate = color_picker.color
 	print("paint test")
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://op6wimbh5dnr"]
+[gd_scene load_steps=23 format=3 uid="uid://op6wimbh5dnr"]
 
 [ext_resource type="Script" uid="uid://kap7dbfhvt6s" path="res://scenes/paint.gd" id="1_gm6b1"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_vhmiv"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="3_8nnhm"]
 [ext_resource type="Texture2D" uid="uid://inp2qbgx1pr" path="res://sprites/bgs/hands.png" id="4_8d07b"]
 [ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="4_gm6b1"]
+[ext_resource type="Texture2D" uid="uid://cm1ei8mhbgrty" path="res://sprites/pots/pot2.png" id="5_34h7g"]
 [ext_resource type="Texture2D" uid="uid://dktp50or36l47" path="res://sprites/bgs/hands2.png" id="5_l0185"]
 [ext_resource type="Texture2D" uid="uid://c1ubbw3k4p6my" path="res://sprites/bgs/handsleft.png" id="6_gm6b1"]
 [ext_resource type="Texture2D" uid="uid://dnspwrbp3881o" path="res://sprites/bgs/handsright.png" id="7_xtu5c"]
 [ext_resource type="Texture2D" uid="uid://x1pmqbmifmrx" path="res://sprites/bgs/handsup.png" id="8_34h7g"]
-[ext_resource type="Texture2D" uid="uid://3qf7ucdw6y0c" path="res://sprites/pots/pot1.png" id="11_xtu5c"]
+[ext_resource type="Texture2D" uid="uid://bekcrwr5r1wq7" path="res://sprites/pots/pot1.png" id="11_xtu5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
 atlas = ExtResource("4_8d07b")
@@ -119,15 +120,16 @@ offset_bottom = 40.0
 texture = ExtResource("2_yiwe3")
 
 [node name="truc" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(396, 207)
 texture = ExtResource("4_gm6b1")
 
 [node name="argilelol" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(399, 168)
-scale = Vector2(3, 3)
-texture = ExtResource("3_8nnhm")
+position = Vector2(402, 323)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("5_34h7g")
 
 [node name="arms" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -137,41 +139,90 @@ sprite_frames = SubResource("SpriteFrames_wfc6h")
 autoplay = "default"
 
 [node name="paintbutton" type="Button" parent="."]
-offset_left = 391.0
-offset_top = 467.0
-offset_right = 446.0
-offset_bottom = 498.0
+offset_left = 687.0
+offset_top = 307.0
+offset_right = 742.0
+offset_bottom = 338.0
 text = "PAINT"
+
+[node name="Area2D_Pot1" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot1"]
+polygon = PackedVector2Array(323, 392, 286, 349, 264, 292, 277, 284, 294, 296, 333, 301, 392, 303, 439, 301, 487, 292, 524, 275, 534, 278, 535, 293, 518, 348, 493, 379, 469, 395, 437, 405, 398, 406, 354, 403)
+
+[node name="Area2D_Pot2" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot2"]
+polygon = PackedVector2Array(322, 416, 336, 268, 442, 256, 462, 269, 480, 315, 480, 388, 479, 420, 444, 435, 370, 436)
+
+[node name="Area2D_Pot3" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot3"]
+polygon = PackedVector2Array(284, 315, 273, 318, 285, 360, 337, 383, 390, 388, 448, 382, 516, 363, 527, 341, 533, 304, 526, 302, 496, 316, 493, 332, 487, 345, 475, 349, 464, 350, 458, 345, 458, 335, 458, 328, 452, 328, 448, 334, 442, 337, 436, 341, 424, 343, 408, 343, 389, 333, 388, 337, 386, 345, 382, 353, 374, 355, 361, 355, 353, 351, 344, 344, 344, 337, 340, 328, 333, 325, 312, 320)
+
+[node name="Area2D_Pot4" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot4"]
+polygon = PackedVector2Array(336, 251, 418, 263, 478, 254, 527, 233, 532, 233, 540, 350, 544, 372, 545, 384, 540, 396, 454, 431, 366, 410, 347, 406, 342, 374)
+
+[node name="Area2D_Pot5" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot5"]
+polygon = PackedVector2Array(336, 251, 418, 263, 478, 254, 527, 233, 532, 233, 540, 350, 544, 372, 545, 384, 540, 396, 454, 431, 366, 410, 347, 406, 342, 374)
+
+[node name="Area2D_Pot6" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot6"]
+polygon = PackedVector2Array(313, 395, 293, 372, 286, 328, 292, 297, 312, 276, 326, 263, 334, 256, 336, 247, 334, 237, 335, 224, 356, 224, 382, 226, 402, 226, 422, 221, 442, 217, 454, 217, 464, 217, 466, 241, 467, 259, 473, 265, 484, 267, 503, 288, 512, 308, 516, 320, 518, 337, 506, 377, 497, 390, 483, 403, 468, 411, 457, 415, 451, 418, 388, 418, 361, 418, 353, 419, 339, 413)
+
+[node name="Area2D_Pot7" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot7"]
+polygon = PackedVector2Array(320, 274, 293, 285, 278, 302, 270, 316, 270, 329, 271, 338, 280, 342, 298, 350, 310, 355, 327, 360, 343, 365, 358, 368, 376, 368, 404, 367, 438, 364, 467, 357, 484, 354, 499, 349, 511, 344, 524, 334, 531, 333, 532, 306, 523, 292, 508, 281, 488, 274, 465, 267, 444, 263, 424, 264, 403, 264, 383, 264, 367, 264, 355, 267, 338, 271)
+
+[node name="Area2D_Pot8" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot8"]
+polygon = PackedVector2Array(338, 254, 307, 271, 296, 283, 285, 295, 277, 311, 270, 325, 269, 344, 273, 362, 280, 377, 290, 391, 301, 403, 309, 411, 326, 418, 346, 425, 366, 427, 403, 428, 434, 428, 465, 422, 494, 413, 517, 397, 532, 369, 538, 340, 532, 316, 517, 286, 493, 262, 467, 251, 460, 249, 438, 253, 411, 255, 384, 254, 352, 251, 340, 248)
+
+[node name="Area2D_Pot9" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot9"]
+polygon = PackedVector2Array(473, 289, 452, 297, 448, 300, 446, 311, 446, 315, 439, 318, 430, 314, 428, 317, 420, 309, 410, 304, 403, 303, 392, 306, 386, 310, 366, 310, 350, 310, 341, 309, 331, 307, 320, 304, 312, 299, 306, 295, 305, 290, 298, 292, 293, 296, 295, 303, 296, 309, 302, 318, 309, 325, 307, 333, 319, 350, 324, 359, 331, 372, 334, 379, 345, 391, 353, 398, 368, 403, 379, 407, 385, 412, 403, 421, 413, 426, 437, 427, 450, 422, 464, 412, 484, 398, 489, 393, 494, 377, 497, 356, 500, 345, 509, 337, 511, 321, 503, 309, 494, 299, 484, 299)
+
+[node name="Area2D_Pot10" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D_Pot10"]
+polygon = PackedVector2Array(312, 264, 323, 273, 328, 277, 345, 280, 371, 280, 396, 278, 417, 270, 428, 261, 430, 254, 431, 249, 436, 249, 439, 252, 439, 293, 437, 345, 435, 375, 437, 388, 420, 401, 414, 405, 414, 409, 371, 407, 353, 407, 336, 403, 323, 397, 320, 369, 310, 335, 306, 327, 308, 319, 302, 287, 298, 270, 298, 260)
 
 [node name="DrawWindow" type="PopupPanel" parent="."]
 position = Vector2i(0, 9)
 size = Vector2i(508, 508)
 
 [node name="DrawArea" type="TextureRect" parent="DrawWindow"]
-visible = false
 texture_filter = 1
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 504.0
 offset_bottom = 504.0
+mouse_filter = 2
 texture = ExtResource("3_8nnhm")
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
-offset_left = 97.0
-offset_top = 128.0
-offset_right = 166.0
-offset_bottom = 193.0
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(273, 361, 275, 333, 277, 322, 284, 305, 291, 288, 296, 280, 308, 266, 317, 260, 333, 249, 347, 240, 368, 237, 382, 232, 394, 225, 405, 217, 427, 215, 440, 219, 459, 223, 485, 249, 507, 274, 527, 299, 527, 314, 534, 340, 535, 357, 530, 375, 507, 391, 472, 390, 451, 398, 405, 398, 345, 394, 323, 398, 304, 400, 274, 391, 272, 383, 272, 367)
-
 [node name="done" type="Button" parent="."]
-offset_left = 391.0
-offset_top = 523.0
-offset_right = 445.0
-offset_bottom = 554.0
+offset_left = 372.0
+offset_top = 562.0
+offset_right = 426.0
+offset_bottom = 593.0
 text = "DONE"
 
 [node name="brush" type="Button" parent="."]
@@ -186,6 +237,7 @@ offset_left = 730.0
 offset_top = 559.0
 offset_right = 788.0
 offset_bottom = 590.0
+mouse_filter = 2
 text = "eraser"
 
 [node name="small" type="Button" parent="."]
@@ -193,6 +245,7 @@ offset_left = 19.0
 offset_top = 254.0
 offset_right = 69.0
 offset_bottom = 285.0
+mouse_filter = 2
 text = "small"
 
 [node name="medium" type="Button" parent="."]
@@ -210,18 +263,24 @@ offset_bottom = 367.0
 text = "big
 "
 
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+offset_left = 97.0
+offset_top = 128.0
+offset_right = 166.0
+offset_bottom = 193.0
+
 [node name="rqst_spr3" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(67, 129)
-scale = Vector2(0.25, 0.25)
+position = Vector2(76, 137)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_xtu5c")
 
 [connection signal="pressed" from="paintbutton" to="." method="_on_paintbutton_pressed"]
 [connection signal="gui_input" from="DrawWindow/DrawArea" to="." method="_on_draw_area_gui_input"]
-[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
 [connection signal="pressed" from="done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="brush" to="." method="_on_brush_pressed"]
 [connection signal="pressed" from="eraser" to="." method="_on_eraser_pressed"]
 [connection signal="pressed" from="small" to="." method="_on_small_pressed"]
 [connection signal="pressed" from="medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="big" to="." method="_on_big_pressed"]
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]

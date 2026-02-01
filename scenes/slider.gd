@@ -39,6 +39,7 @@ func _process(delta):
 		elif is_cursor_in_zone(success_zone):
 			print("bravo", lives)
 			lvl1_finished = true
+			Transition.fade_to_scene("res://scenes/paint.tscn")
 		else:
 			lives -= 1
 			print("raté", lives)

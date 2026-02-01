@@ -8,11 +8,16 @@ extends Sprite2D
 var argile0_texture = preload("res://sprites/argile/argile0.png")
 
 var pots = {
-	"pot1": [["up", "down"], ["up", "up", "down"]],
-	"pot2": [["left", "right"], ["right", "left"]],
-	"pot3": [["up", "up"], ["down", "down"]],
-	"pot4": [["left", "up"], ["up", "left"]],
-	"pot5": [["down", "down"], ["up", "down"]]
+	"pot1": [["down", "down"], ["up", "up", "down", "down", "down"]],
+	"pot2": [["up", "up", "left", "right", "down"], ["right", "left", "up", "up", "down"], ["up", "up", "right", "left", "down"], ["left", "right", "up", "up", "down"]],
+	"pot3": [["down", "down", "left", "right"], ["down", "down", "right", "left"]],
+	"pot4": [["up", "left", "left", "right", "down"], ["up", "right", "left", "left", "down"], ["up", "left", "right", "left", "down"]],
+	"pot5": [["up", "left", "left", "right", "down"], ["up", "right", "left", "left", "down"], ["up", "left", "right", "left", "down"]],
+	"pot6": [["up", "up", "down"]],
+	"pot7": [["down", "down", "down"]],
+	"pot8": [["up", "down"]],
+	"pot9": [["up", "right", "right", "down"]],
+	"pot10": [["up", "right", "right", "down"]]
 }
 
 var current_pot := ""        

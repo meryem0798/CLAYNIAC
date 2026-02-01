@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dilswdsk61vvr" path="res://sprites/request_square.png" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://3qf7ucdw6y0c" path="res://sprites/pots/pot1.png" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bekcrwr5r1wq7" path="res://sprites/pots/pot1.png" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="5_tefeu"]
 [ext_resource type="Script" uid="uid://dyrp4kqnbs41f" path="res://scenes/rqst_spr.gd" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="6_trceg"]
@@ -136,8 +136,8 @@ texture = ExtResource("1_sugp2")
 
 [node name="rqst_spr" type="Sprite2D" parent="requests"]
 texture_filter = 1
-position = Vector2(67, 129)
-scale = Vector2(0.25, 0.25)
+position = Vector2(76, 137)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_jyhfs")
 script = ExtResource("5_ya4ey")
 

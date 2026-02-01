@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_m1wc2"]
 [ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="3_c6yvy"]
 [ext_resource type="Texture2D" uid="uid://duse1edpuj2m3" path="res://sprites/bgs/four.png" id="4_m1wc2"]
-[ext_resource type="Texture2D" uid="uid://3qf7ucdw6y0c" path="res://sprites/pots/pot1.png" id="6_vkw7c"]
+[ext_resource type="Texture2D" uid="uid://bekcrwr5r1wq7" path="res://sprites/pots/pot1.png" id="6_vkw7c"]
 [ext_resource type="Script" uid="uid://bfx8fsupnyj7j" path="res://scenes/slider.gd" id="7_vkw7c"]
 
 [node name="oven" type="Node2D"]
@@ -43,8 +43,8 @@ text = "put in oven"
 
 [node name="rqst_spr2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(67, 129)
-scale = Vector2(0.25, 0.25)
+position = Vector2(76, 137)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_vkw7c")
 
 [node name="slider" type="Control" parent="."]

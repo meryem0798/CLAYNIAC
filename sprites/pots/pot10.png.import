@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lqpefq1qr8n"
-path="res://.godot/imported/pot3.png-60a85bb9d9d1ff58ae4f720ad3921a70.ctex"
+uid="uid://c4o1xflae5tbo"
+path="res://.godot/imported/pot10.png-833aabfdccb9da99a00d91f78dfb5fc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pots/pot3.png"
-dest_files=["res://.godot/imported/pot3.png-60a85bb9d9d1ff58ae4f720ad3921a70.ctex"]
+source_file="res://sprites/pots/pot10.png"
+dest_files=["res://.godot/imported/pot10.png-833aabfdccb9da99a00d91f78dfb5fc3.ctex"]
 
 [params]
 
