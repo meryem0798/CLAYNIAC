@@ -31,3 +31,12 @@ texture_filter = 1
 position = Vector2(402, 323)
 scale = Vector2(2, 2)
 texture = ExtResource("4_gh6hq")
+
+[node name="finishh" type="Button" parent="."]
+offset_left = 643.0
+offset_top = 369.0
+offset_right = 757.0
+offset_bottom = 487.0
+text = "ok"
+
+[connection signal="pressed" from="finishh" to="." method="_on_finishh_pressed"]

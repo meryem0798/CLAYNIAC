@@ -263,17 +263,25 @@ offset_bottom = 367.0
 text = "big
 "
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
-offset_left = 97.0
-offset_top = 128.0
-offset_right = 166.0
-offset_bottom = 193.0
-
 [node name="rqst_spr3" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(76, 137)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_xtu5c")
+
+[node name="green" type="Button" parent="."]
+offset_left = 163.0
+offset_top = 255.0
+offset_right = 224.0
+offset_bottom = 286.0
+text = "CARVE"
+
+[node name="orange" type="Button" parent="."]
+offset_left = 152.0
+offset_top = 306.0
+offset_right = 227.0
+offset_bottom = 337.0
+text = "PAINT"
 
 [connection signal="pressed" from="paintbutton" to="." method="_on_paintbutton_pressed"]
 [connection signal="gui_input" from="DrawWindow/DrawArea" to="." method="_on_draw_area_gui_input"]
@@ -283,4 +291,5 @@ texture = ExtResource("11_xtu5c")
 [connection signal="pressed" from="small" to="." method="_on_small_pressed"]
 [connection signal="pressed" from="medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="big" to="." method="_on_big_pressed"]
-[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="orange" to="." method="_on_orange_pressed"]

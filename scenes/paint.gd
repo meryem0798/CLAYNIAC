@@ -1,14 +1,17 @@
 extends Node2D
 
 @onready var argilelol: Sprite2D = $argilelol
-@onready var color_picker: ColorPickerButton = $ColorPickerButton
+#@onready var color_picker: ColorPickerButton = $ColorPickerButton
 #@onready var area_2d: Area2D = $Area2D
 @onready var rqst_spr_3: Sprite2D = $rqst_spr3
 #@onready var area_2d: Area2D = $Area2D_Pot1
-var allowed_color : Color = Color("dce8e8")
+var allowed_colors : Array[Color] = [
+	Color("dce8e8"), 
+	Color("d4d7d2") 
+]
 var draw_image: Image
 var draw_texture: ImageTexture
-var brush_color: Color = Color.BLACK
+var brush_color: Color = Color("a59f6a")
 var brush_size: int = 3
 var last_mouse_pos: Vector2 = Vector2.ZERO
 
@@ -30,6 +33,12 @@ func _ready():
 	draw_texture = ImageTexture.create_from_image(draw_image)
 	argilelol.texture = draw_texture
 	#argilelol.self_modulate = Color.RED
+	
+func is_color_allowed(pixel_color: Color) -> bool:
+	for allowed in allowed_colors:
+		if pixel_color.is_equal_approx(allowed):
+			return true
+	return false
 	
 	
 func _input(event: InputEvent) -> void:
@@ -62,7 +71,8 @@ func is_mouse_in_area() -> bool:
 		
 	var pixel_color = original_image.get_pixel(x, y)
 	
-	return pixel_color.a > 0.1 and pixel_color.is_equal_approx(allowed_color)
+	# On vérifie l'alpha ET si la couleur est dans notre liste
+	return pixel_color.a > 0.1 and is_color_allowed(pixel_color)
 
 func get_local_mouse_pos_on_sprite() -> Vector2:
 	var rect = argilelol.get_rect()
@@ -81,7 +91,8 @@ func draw_point(pos: Vector2):
 			if px >= 0 and px < draw_image.get_width() and py >= 0 and py < draw_image.get_height():
 				var original_pixel_color = original_image.get_pixel(px, py)
 				
-				if original_pixel_color.is_equal_approx(allowed_color):
+				# Utilisation de notre fonction de vérification
+				if is_color_allowed(original_pixel_color):
 					if is_erasing:
 						draw_image.set_pixel(px, py, original_pixel_color)
 					else:
@@ -107,7 +118,7 @@ func _on_done_pressed() -> void:
 
 func _on_brush_pressed() -> void:
 	is_erasing = false
-	argilelol.self_modulate = color_picker.color
+	#argilelol.self_modulate = color_picker.color
 	print("paint test")
 
 
@@ -126,3 +137,13 @@ func _on_medium_pressed() -> void:
 
 func _on_big_pressed() -> void:
 	brush_size = 5
+
+
+func _on_green_pressed() -> void:
+	brush_color = Color("54341d")
+	brush_size = 1.5
+
+
+func _on_orange_pressed() -> void:
+	brush_color = Color("cf7d4f")
+	brush_size = 3

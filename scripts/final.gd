@@ -7,3 +7,10 @@ func _ready():
 		argilelol_2.texture = GameManager.argile_texture
 	else:
 		print("nn")
+		
+		
+		
+
+
+func _on_finishh_pressed() -> void:
+	Transition.fade_to_scene("res://scenes/main.tscn")
