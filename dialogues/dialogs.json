@@ -1,0 +1,35 @@
+{
+  "diao_pot1": [
+	"UP + DOWN",
+	"UP + UP + \nDOWN+ DOWN + DOWN"
+  ],
+  "diao_pot2": [
+	"UP + UP + \nLEFT+ RIGHT + DOWN",
+	"RIGHT + LEFT \n+ UP+ UP + DOWN"
+  ],
+  "diao_pot3": [
+	"DOWN + DOWN \n+ LEFT+ RIGHT",
+	"DOWN + DOWN \n+ RIGHT+ LEFT"
+  ],
+  "diao_pot4": [
+	"UP + LEFT \n+ LEFT+ RIGHT + DOWN"
+  ],
+  "diao_pot5": [
+	"UP + LEFT \n+ LEFT+ RIGHT + DOWN"
+  ],
+  "diao_pot6": [
+	"UP + UP + DOWN"
+  ],
+  "diao_pot7": [
+	"DOWN + DOWN + DOWN"
+  ],
+  "diao_pot8": [
+	"UP + DOWN"
+  ],
+  "diao_pot9": [
+	"UP + RIGHT \n+ RIGHT+ DOWN"
+  ],
+  "diao_pot10": [
+	"UP + RIGHT \n+ RIGHT+ DOWN"
+  ]
+}

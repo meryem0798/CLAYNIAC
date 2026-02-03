@@ -1,4 +1,5 @@
 extends Node2D
+@onready var paint: AnimatedSprite2D = $paint
 
 @onready var argilelol: Sprite2D = $argilelol
 #@onready var color_picker: ColorPickerButton = $ColorPickerButton
@@ -11,28 +12,47 @@ var allowed_colors : Array[Color] = [
 ]
 var draw_image: Image
 var draw_texture: ImageTexture
-var brush_color: Color = Color("a59f6a")
+var brush_color: Color = Color("3e8091")
 var brush_size: int = 3
 var last_mouse_pos: Vector2 = Vector2.ZERO
+@onready var paper: AudioStreamPlayer2D = $paper
 
 var original_image: Image
 var is_erasing: bool = false
+@onready var home: AnimatedSprite2D = $home
+@onready var knock: AudioStreamPlayer2D = $knock
+@onready var smallicon: AnimatedSprite2D = $smallicon
+@onready var mediumicon: AnimatedSprite2D = $mediumicon
+@onready var bigicon: AnimatedSprite2D = $bigicon
+@onready var erasericon: AnimatedSprite2D = $erasericon
+@onready var finishbutton: AnimatedSprite2D = $finishbutton
+@onready var paintsound: AudioStreamPlayer2D = $paintsound
+@onready var boing: AudioStreamPlayer2D = $boing
+
 
 func _ready():
-	
+	MusicPlayer.play_music(preload("res://music/little_cafe.wav"))
 	rqst_spr_3.texture = GameManager.pot_demande
+	if GameManager.pot_demande:
+		GameManager._update_pot_id() 
+	
+	var id = GameManager.pot_id
+	print("ID détecté : ", id) 
 
 	argilelol.texture = GameManager.pot_demande
 
 
+	var ref_image = GameManager.pot_demande.get_image()
+	ref_image.convert(Image.FORMAT_RGBA8)
+	original_image = ref_image 
+
+
 	var temp_image = argilelol.texture.get_image()
-	temp_image.convert(Image.FORMAT_RGBA8) 
-	original_image = temp_image.duplicate()
-	
+	temp_image.convert(Image.FORMAT_RGBA8)
 	draw_image = temp_image
 	draw_texture = ImageTexture.create_from_image(draw_image)
 	argilelol.texture = draw_texture
-	#argilelol.self_modulate = Color.RED
+	
 	
 func is_color_allowed(pixel_color: Color) -> bool:
 	for allowed in allowed_colors:
@@ -71,7 +91,7 @@ func is_mouse_in_area() -> bool:
 		
 	var pixel_color = original_image.get_pixel(x, y)
 	
-	# On vérifie l'alpha ET si la couleur est dans notre liste
+
 	return pixel_color.a > 0.1 and is_color_allowed(pixel_color)
 
 func get_local_mouse_pos_on_sprite() -> Vector2:
@@ -91,7 +111,7 @@ func draw_point(pos: Vector2):
 			if px >= 0 and px < draw_image.get_width() and py >= 0 and py < draw_image.get_height():
 				var original_pixel_color = original_image.get_pixel(px, py)
 				
-				# Utilisation de notre fonction de vérification
+
 				if is_color_allowed(original_pixel_color):
 					if is_erasing:
 						draw_image.set_pixel(px, py, original_pixel_color)
@@ -112,23 +132,28 @@ func _on_color_picker_button_color_changed(color: Color) -> void:
 
 
 func _on_done_pressed() -> void:
+	#paper.play()
 	GameManager.argile_texture = argilelol.texture
 	get_tree().change_scene_to_file("res://scenes/final.tscn")
 
 
 func _on_brush_pressed() -> void:
+	paintsound.play()
+	brush_color = Color("3e8091")
+	brush_size = 3
 	is_erasing = false
 	#argilelol.self_modulate = color_picker.color
 	print("paint test")
 
 
 func _on_eraser_pressed() -> void:
+	boing.play()
 	is_erasing = true
 	print("gomme test")
 
 
 func _on_small_pressed() -> void:
-	brush_size = 2
+	brush_size = 1
 
 
 func _on_medium_pressed() -> void:
@@ -139,11 +164,61 @@ func _on_big_pressed() -> void:
 	brush_size = 5
 
 
-func _on_green_pressed() -> void:
-	brush_color = Color("54341d")
-	brush_size = 1.5
+func _on_mainmenu_pressed() -> void:
+	knock.play()
+	Transition.fade_to_scene("res://scenes/mainmenu.tscn")
+
+func _on_mainmenu_mouse_entered() -> void:
+	home.play("pressed")
 
 
-func _on_orange_pressed() -> void:
-	brush_color = Color("cf7d4f")
-	brush_size = 3
+func _on_mainmenu_mouse_exited() -> void:
+	home.play("default")
+
+
+func _on_brush_mouse_entered() -> void:
+	paint.play("pressed")
+
+
+func _on_brush_mouse_exited() -> void:
+	paint.play("default")
+
+
+func _on_small_mouse_entered() -> void:
+	smallicon.play("pressed")
+
+
+func _on_small_mouse_exited() -> void:
+	smallicon.play("default")
+
+
+func _on_medium_mouse_entered() -> void:
+	mediumicon.play("pressed")
+
+
+func _on_medium_mouse_exited() -> void:
+	mediumicon.play("default")
+
+
+func _on_big_mouse_entered() -> void:
+	bigicon.play("pressed")
+
+
+func _on_big_mouse_exited() -> void:
+	bigicon.play("default")
+
+
+func _on_eraser_mouse_entered() -> void:
+	erasericon.play("pressed")
+
+
+func _on_eraser_mouse_exited() -> void:
+	erasericon.play("default")
+
+
+func _on_done_mouse_entered() -> void:
+	finishbutton.play("pressed")
+
+
+func _on_done_mouse_exited() -> void:
+	finishbutton.play("default")

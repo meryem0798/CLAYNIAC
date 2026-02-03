@@ -1,10 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://butquomiv6fai"]
+[gd_scene load_steps=22 format=3 uid="uid://butquomiv6fai"]
 
 [ext_resource type="Script" uid="uid://8s2xicrsrv30" path="res://scripts/final.gd" id="1_op64y"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_qkvop"]
 [ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_op64y"]
-[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="4_gh6hq"]
-[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="4_y0die"]
+[ext_resource type="Texture2D" uid="uid://b36sgf4hgr72f" path="res://sprites/bgs/wheel1.png" id="4_xxe6l"]
+[ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="5_3hs2o"]
+[ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="6_dqvmu"]
+[ext_resource type="AudioStream" uid="uid://jciqawf4c2ff" path="res://music/knock.mp3" id="7_xxe6l"]
+[ext_resource type="Texture2D" uid="uid://cw1hsi8xqqc0i" path="res://sprites/buttons/continue2.png" id="8_xxe6l"]
+[ext_resource type="Texture2D" uid="uid://xg7li24sm2mn" path="res://sprites/buttons/continue.png" id="9_vf3a0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb6dy"]
+load_path = "res://.godot/imported/argile0.png-b34c287fc4ed9580f312234fa1e924fc.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30t23"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu4jf"]
+atlas = ExtResource("8_xxe6l")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7ddy"]
+atlas = ExtResource("9_vf3a0")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjg73"]
+atlas = ExtResource("9_vf3a0")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0loja"]
+atlas = ExtResource("8_xxe6l")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6b1qv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu4jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7ddy")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjg73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0loja")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gh6hq"]
+load_path = "res://.godot/imported/pot1.png-e84066fac3a3ae9ccc10cacf31982f85.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf3a0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("5_3hs2o")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("6_dqvmu")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30t23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
 
 [node name="final" type="Node2D"]
 script = ExtResource("1_op64y")
@@ -23,20 +112,58 @@ texture = ExtResource("2_op64y")
 
 [node name="truc" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(396, 207)
-texture = ExtResource("4_y0die")
+position = Vector2(417, 435)
+texture = ExtResource("4_xxe6l")
 
 [node name="argilelol2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(402, 323)
+position = Vector2(419, 361)
 scale = Vector2(2, 2)
-texture = ExtResource("4_gh6hq")
+texture = SubResource("CompressedTexture2D_eb6dy")
 
-[node name="finishh" type="Button" parent="."]
-offset_left = 643.0
-offset_top = 369.0
-offset_right = 757.0
-offset_bottom = 487.0
-text = "ok"
+[node name="continue" type="Button" parent="."]
+offset_left = 310.0
+offset_top = 532.0
+offset_right = 521.0
+offset_bottom = 588.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_30t23")
+flat = true
 
-[connection signal="pressed" from="finishh" to="." method="_on_finishh_pressed"]
+[node name="continueicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(418, 557)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_6b1qv")
+autoplay = "default"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xxe6l")
+
+[node name="rqst_spr3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(76, 137)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_gh6hq")
+
+[node name="mainmenu2" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 446.0
+offset_right = 800.0
+offset_bottom = 586.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_vf3a0")
+flat = true
+
+[node name="home" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(731, 518)
+sprite_frames = SubResource("SpriteFrames_30t23")
+animation = &"pressed"
+autoplay = "default"
+
+[connection signal="mouse_entered" from="continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_finishh_pressed"]
+[connection signal="mouse_entered" from="mainmenu2" to="." method="_on_mainmenu_2_mouse_entered"]
+[connection signal="mouse_exited" from="mainmenu2" to="." method="_on_mainmenu_2_mouse_exited"]
+[connection signal="pressed" from="mainmenu2" to="." method="_on_mainmenu_2_pressed"]

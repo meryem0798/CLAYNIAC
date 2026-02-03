@@ -2,6 +2,7 @@ extends Node
 
 var argile_texture: Texture2D
 var pot_demande: Texture2D
+
 var pot_id: int = -1
 
 func set_pot_demande(texture: Texture2D) -> void:

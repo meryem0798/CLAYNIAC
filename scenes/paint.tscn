@@ -1,17 +1,63 @@
-[gd_scene load_steps=23 format=3 uid="uid://op6wimbh5dnr"]
+[gd_scene load_steps=73 format=3 uid="uid://op6wimbh5dnr"]
 
 [ext_resource type="Script" uid="uid://kap7dbfhvt6s" path="res://scenes/paint.gd" id="1_gm6b1"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_vhmiv"]
 [ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_yiwe3"]
-[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="3_8nnhm"]
 [ext_resource type="Texture2D" uid="uid://inp2qbgx1pr" path="res://sprites/bgs/hands.png" id="4_8d07b"]
-[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="4_gm6b1"]
-[ext_resource type="Texture2D" uid="uid://cm1ei8mhbgrty" path="res://sprites/pots/pot2.png" id="5_34h7g"]
+[ext_resource type="Texture2D" uid="uid://b36sgf4hgr72f" path="res://sprites/bgs/wheel1.png" id="4_fs4mh"]
 [ext_resource type="Texture2D" uid="uid://dktp50or36l47" path="res://sprites/bgs/hands2.png" id="5_l0185"]
+[ext_resource type="Texture2D" uid="uid://c8t2bxs4hi732" path="res://sprites/bgs/wheel2.png" id="5_w23o4"]
 [ext_resource type="Texture2D" uid="uid://c1ubbw3k4p6my" path="res://sprites/bgs/handsleft.png" id="6_gm6b1"]
 [ext_resource type="Texture2D" uid="uid://dnspwrbp3881o" path="res://sprites/bgs/handsright.png" id="7_xtu5c"]
 [ext_resource type="Texture2D" uid="uid://x1pmqbmifmrx" path="res://sprites/bgs/handsup.png" id="8_34h7g"]
-[ext_resource type="Texture2D" uid="uid://bekcrwr5r1wq7" path="res://sprites/pots/pot1.png" id="11_xtu5c"]
+[ext_resource type="Texture2D" uid="uid://bs1wnvyfwnpgu" path="res://sprites/buttons/paint.png" id="10_48do8"]
+[ext_resource type="Texture2D" uid="uid://3fs7w30qepwa" path="res://sprites/buttons/done.png" id="10_k3ifg"]
+[ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="10_xtu5c"]
+[ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="11_34h7g"]
+[ext_resource type="Texture2D" uid="uid://cnqkcsv7yf6jf" path="res://sprites/buttons/done2.png" id="11_fs4mh"]
+[ext_resource type="Texture2D" uid="uid://bp00scytaw26g" path="res://sprites/buttons/paint2.png" id="11_xru0p"]
+[ext_resource type="Texture2D" uid="uid://bv3lb4qq3etvu" path="res://sprites/buttons/small.png" id="12_4a4lg"]
+[ext_resource type="Texture2D" uid="uid://bme3v7dvt4fdg" path="res://sprites/buttons/small2.png" id="12_8ccdb"]
+[ext_resource type="AudioStream" uid="uid://jciqawf4c2ff" path="res://music/knock.mp3" id="12_34h7g"]
+[ext_resource type="Texture2D" uid="uid://dleychjudci8j" path="res://sprites/buttons/erase.png" id="12_c4cg7"]
+[ext_resource type="Texture2D" uid="uid://31vf0j3w0pm7" path="res://sprites/buttons/medium.png" id="13_4a4lg"]
+[ext_resource type="Texture2D" uid="uid://djeny020s0xk4" path="res://sprites/buttons/erase2.png" id="13_v15bb"]
+[ext_resource type="Texture2D" uid="uid://yg885sln8270" path="res://sprites/buttons/medium2.png" id="14_cbjuu"]
+[ext_resource type="Texture2D" uid="uid://bu7jrvthxllsr" path="res://sprites/buttons/big.png" id="15_c4cg7"]
+[ext_resource type="Texture2D" uid="uid://chlot8vtfkasv" path="res://sprites/buttons/big2.png" id="16_v15bb"]
+[ext_resource type="AudioStream" uid="uid://4auofytfxgwp" path="res://music/splat-sound-effect_DaCirwsx.mp3" id="26_w23o4"]
+[ext_resource type="AudioStream" uid="uid://blctxkmb4asst" path="res://music/boing.mp3" id="27_qnjdh"]
+[ext_resource type="AudioStream" uid="uid://b3ei1xe8tqkk5" path="res://music/cutting-cardboard-free-sound-effect-various-versions_w9xKmlKi.mp3" id="28_aic3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ids8r"]
+atlas = ExtResource("4_fs4mh")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnhof"]
+atlas = ExtResource("5_w23o4")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aic3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ids8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnhof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0185"]
+load_path = "res://.godot/imported/pot2.png-475151860dd24d68e692aa240fbb61b8.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
 atlas = ExtResource("4_8d07b")
@@ -104,6 +150,222 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb6dy"]
+load_path = "res://.godot/imported/argile0.png-b34c287fc4ed9580f312234fa1e924fc.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w23o4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmstl"]
+atlas = ExtResource("10_k3ifg")
+region = Rect2(0, 0, 175, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62f8g"]
+atlas = ExtResource("11_fs4mh")
+region = Rect2(0, 0, 175, 222)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klp3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmstl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62f8g")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48do8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0qr3"]
+atlas = ExtResource("10_48do8")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i00cs"]
+atlas = ExtResource("11_xru0p")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5jqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0qr3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i00cs")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4cg7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ifg"]
+atlas = ExtResource("12_c4cg7")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4mh"]
+atlas = ExtResource("13_v15bb")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnjdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ifg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4mh")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ccdb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbjuu"]
+atlas = ExtResource("12_4a4lg")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4cg7"]
+atlas = ExtResource("12_8ccdb")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w23o4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbjuu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4cg7")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a4lg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnjdh"]
+atlas = ExtResource("13_4a4lg")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aic3k"]
+atlas = ExtResource("14_cbjuu")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmstl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnjdh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aic3k")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbjuu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4xx7"]
+atlas = ExtResource("15_c4cg7")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npk0r"]
+atlas = ExtResource("16_v15bb")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62f8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4xx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npk0r")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya4ey"]
+load_path = "res://.godot/imported/pot1.png-e84066fac3a3ae9ccc10cacf31982f85.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfc6h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("10_xtu5c")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("11_34h7g")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48do8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
 [node name="paint" type="Node2D"]
 script = ExtResource("1_gm6b1")
 
@@ -119,17 +381,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_yiwe3")
 
-[node name="truc" type="Sprite2D" parent="."]
-visible = false
+[node name="truc2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(396, 207)
-texture = ExtResource("4_gm6b1")
+position = Vector2(417, 435)
+sprite_frames = SubResource("SpriteFrames_aic3k")
+autoplay = "default"
 
 [node name="argilelol" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(402, 323)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("5_34h7g")
+position = Vector2(419, 361)
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_l0185")
 
 [node name="arms" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -139,6 +401,7 @@ sprite_frames = SubResource("SpriteFrames_wfc6h")
 autoplay = "default"
 
 [node name="paintbutton" type="Button" parent="."]
+visible = false
 offset_left = 687.0
 offset_top = 307.0
 offset_right = 742.0
@@ -216,80 +479,154 @@ offset_top = 4.0
 offset_right = 504.0
 offset_bottom = 504.0
 mouse_filter = 2
-texture = ExtResource("3_8nnhm")
+texture = SubResource("CompressedTexture2D_eb6dy")
 
 [node name="done" type="Button" parent="."]
-offset_left = 372.0
-offset_top = 562.0
-offset_right = 426.0
-offset_bottom = 593.0
-text = "DONE"
+offset_left = 364.0
+offset_top = 529.0
+offset_right = 456.0
+offset_bottom = 599.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_w23o4")
+flat = true
+
+[node name="finishbutton" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(412, 541)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_klp3h")
+autoplay = "default"
 
 [node name="brush" type="Button" parent="."]
-offset_left = 22.0
-offset_top = 555.0
-offset_right = 75.0
-offset_bottom = 586.0
-text = "brush"
+offset_left = 103.0
+offset_top = 246.0
+offset_right = 209.0
+offset_bottom = 315.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_48do8")
+flat = true
+
+[node name="paint" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(156, 304)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_k5jqd")
+autoplay = "default"
 
 [node name="eraser" type="Button" parent="."]
-offset_left = 730.0
-offset_top = 559.0
-offset_right = 788.0
-offset_bottom = 590.0
-mouse_filter = 2
-text = "eraser"
+offset_left = 613.0
+offset_top = 242.0
+offset_right = 690.0
+offset_bottom = 358.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_c4cg7")
+flat = true
+
+[node name="erasericon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(655, 302)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_qnjdh")
+animation = &"pressed"
+autoplay = "default"
 
 [node name="small" type="Button" parent="."]
-offset_left = 19.0
-offset_top = 254.0
-offset_right = 69.0
-offset_bottom = 285.0
-mouse_filter = 2
-text = "small"
+offset_left = 71.0
+offset_top = 389.0
+offset_right = 166.0
+offset_bottom = 424.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ccdb")
+flat = true
+
+[node name="smallicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(127, 433)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_w23o4")
+autoplay = "default"
 
 [node name="medium" type="Button" parent="."]
-offset_left = 21.0
-offset_top = 293.0
-offset_right = 94.0
-offset_bottom = 324.0
-text = "medium"
+offset_left = 57.0
+offset_top = 458.0
+offset_right = 156.0
+offset_bottom = 489.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_4a4lg")
+flat = true
+
+[node name="mediumicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(107, 478)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_tmstl")
+animation = &"pressed"
+autoplay = "default"
 
 [node name="big" type="Button" parent="."]
-offset_left = 23.0
-offset_top = 336.0
-offset_right = 55.0
-offset_bottom = 367.0
-text = "big
-"
+offset_left = 53.0
+offset_top = 525.0
+offset_right = 144.0
+offset_bottom = 583.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cbjuu")
+flat = true
+
+[node name="bigicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(101, 543)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_62f8g")
+autoplay = "default"
 
 [node name="rqst_spr3" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(76, 137)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_xtu5c")
+texture = SubResource("CompressedTexture2D_ya4ey")
 
-[node name="green" type="Button" parent="."]
-offset_left = 163.0
-offset_top = 255.0
-offset_right = 224.0
-offset_bottom = 286.0
-text = "CARVE"
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 446.0
+offset_right = 800.0
+offset_bottom = 586.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_wfc6h")
+flat = true
 
-[node name="orange" type="Button" parent="."]
-offset_left = 152.0
-offset_top = 306.0
-offset_right = 227.0
-offset_bottom = 337.0
-text = "PAINT"
+[node name="home" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(731, 518)
+sprite_frames = SubResource("SpriteFrames_48do8")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_34h7g")
+
+[node name="paintsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_w23o4")
+
+[node name="boing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_qnjdh")
+
+[node name="paper" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_aic3k")
+volume_db = 17.42
 
 [connection signal="pressed" from="paintbutton" to="." method="_on_paintbutton_pressed"]
 [connection signal="gui_input" from="DrawWindow/DrawArea" to="." method="_on_draw_area_gui_input"]
+[connection signal="mouse_entered" from="done" to="." method="_on_done_mouse_entered"]
+[connection signal="mouse_exited" from="done" to="." method="_on_done_mouse_exited"]
 [connection signal="pressed" from="done" to="." method="_on_done_pressed"]
+[connection signal="mouse_entered" from="brush" to="." method="_on_brush_mouse_entered"]
+[connection signal="mouse_exited" from="brush" to="." method="_on_brush_mouse_exited"]
 [connection signal="pressed" from="brush" to="." method="_on_brush_pressed"]
+[connection signal="mouse_entered" from="eraser" to="." method="_on_eraser_mouse_entered"]
+[connection signal="mouse_exited" from="eraser" to="." method="_on_eraser_mouse_exited"]
 [connection signal="pressed" from="eraser" to="." method="_on_eraser_pressed"]
+[connection signal="mouse_entered" from="small" to="." method="_on_small_mouse_entered"]
+[connection signal="mouse_exited" from="small" to="." method="_on_small_mouse_exited"]
 [connection signal="pressed" from="small" to="." method="_on_small_pressed"]
+[connection signal="mouse_entered" from="medium" to="." method="_on_medium_mouse_entered"]
+[connection signal="mouse_exited" from="medium" to="." method="_on_medium_mouse_exited"]
 [connection signal="pressed" from="medium" to="." method="_on_medium_pressed"]
+[connection signal="mouse_entered" from="big" to="." method="_on_big_mouse_entered"]
+[connection signal="mouse_exited" from="big" to="." method="_on_big_mouse_exited"]
 [connection signal="pressed" from="big" to="." method="_on_big_pressed"]
-[connection signal="pressed" from="green" to="." method="_on_green_pressed"]
-[connection signal="pressed" from="orange" to="." method="_on_orange_pressed"]
+[connection signal="mouse_entered" from="mainmenu" to="." method="_on_mainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="mainmenu" to="." method="_on_mainmenu_mouse_exited"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]

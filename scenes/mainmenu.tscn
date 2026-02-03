@@ -1,9 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5cs3ck7u3ql5"]
+[gd_scene load_steps=11 format=3 uid="uid://b5cs3ck7u3ql5"]
 
 [ext_resource type="Script" uid="uid://s56k5sfdndkl" path="res://scenes/mainmenu.gd" id="1_3vvtq"]
-[ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_r3g3c"]
-[ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_3vvtq"]
-[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="3_s5g8n"]
+[ext_resource type="Texture2D" uid="uid://dqsxa847qos4n" path="res://sprites/bgs/menubg.png" id="2_7yvfd"]
+[ext_resource type="Texture2D" uid="uid://duvjmbmte1nmv" path="res://sprites/buttons/menustartbutton.png" id="5_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://da8mh25advhbi" path="res://sprites/bgs/title.png" id="6_7yvfd"]
+[ext_resource type="Texture2D" uid="uid://1r623fqcn54a" path="res://sprites/buttons/menustartbutton2.png" id="6_85riq"]
+[ext_resource type="AudioStream" uid="uid://cjcr3psxrv7ef" path="res://music/shop-door-bell_dqBb3L5e.mp3" id="6_dfy5j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf3n4"]
+atlas = ExtResource("5_dfy5j")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h73c4"]
+atlas = ExtResource("6_85riq")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uui5l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf3n4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h73c4")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
 
 [node name="mainmenu" type="Node2D"]
 script = ExtResource("1_3vvtq")
@@ -12,34 +44,35 @@ script = ExtResource("1_3vvtq")
 texture_filter = 1
 offset_right = 807.0
 offset_bottom = 610.0
-texture = ExtResource("1_r3g3c")
-
-[node name="bg2" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_3vvtq")
-
-[node name="truc" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(396, 207)
-texture = ExtResource("3_s5g8n")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 89.0
-offset_top = 53.0
-offset_right = 740.0
-offset_bottom = 330.0
-theme_override_font_sizes/font_size = 100
-text = "GAME TITLE
-+ COOL FONT"
+texture = ExtResource("2_7yvfd")
 
 [node name="play" type="Button" parent="."]
-offset_left = 340.0
-offset_top = 415.0
-offset_right = 469.0
-offset_bottom = 492.0
+offset_left = 219.0
+offset_top = 465.0
+offset_right = 556.0
+offset_bottom = 549.0
 theme_override_font_sizes/font_size = 50
-text = "PLAY"
+theme_override_styles/focus = SubResource("StyleBoxFlat_7yvfd")
+flat = true
 
+[node name="playbutton" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(395, 523)
+sprite_frames = SubResource("SpriteFrames_uui5l")
+autoplay = "default"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 84.0
+offset_top = 44.0
+offset_right = 725.0
+offset_bottom = 235.0
+texture = ExtResource("6_7yvfd")
+
+[node name="dring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dfy5j")
+volume_db = -5.585
+
+[connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

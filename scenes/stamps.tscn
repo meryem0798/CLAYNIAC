@@ -1,0 +1,332 @@
+[gd_scene load_steps=40 format=3 uid="uid://bu7x72c1w8ifk"]
+
+[ext_resource type="Script" uid="uid://7c3bjdacyb06" path="res://scripts/stamps.gd" id="1_u7qhf"]
+[ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_upj0v"]
+[ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_u7qhf"]
+[ext_resource type="Texture2D" uid="uid://b36sgf4hgr72f" path="res://sprites/bgs/wheel1.png" id="4_20k0i"]
+[ext_resource type="Texture2D" uid="uid://c8t2bxs4hi732" path="res://sprites/bgs/wheel2.png" id="5_l3p1q"]
+[ext_resource type="Texture2D" uid="uid://q1cjixhwoecf" path="res://sprites/buttons/checkerstamp.png" id="6_n5dvh"]
+[ext_resource type="Texture2D" uid="uid://o3cpj5r3ybcm" path="res://sprites/buttons/stripestamp.png" id="7_p3rri"]
+[ext_resource type="Texture2D" uid="uid://dsa2uoekaqese" path="res://sprites/buttons/wavestamp.png" id="8_3dxl4"]
+[ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="8_lkhk4"]
+[ext_resource type="Texture2D" uid="uid://q7vvn47nna2i" path="res://sprites/buttons/deletestamp.png" id="8_x28p4"]
+[ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="9_8tc0x"]
+[ext_resource type="Texture2D" uid="uid://cfwi1fb8lyd" path="res://sprites/buttons/deletestamp2.png" id="9_mxj3x"]
+[ext_resource type="AudioStream" uid="uid://jciqawf4c2ff" path="res://music/knock.mp3" id="10_8tc0x"]
+[ext_resource type="Texture2D" uid="uid://cw1hsi8xqqc0i" path="res://sprites/buttons/continue2.png" id="13_7nr4y"]
+[ext_resource type="Texture2D" uid="uid://xg7li24sm2mn" path="res://sprites/buttons/continue.png" id="14_20k0i"]
+[ext_resource type="AudioStream" uid="uid://voqbafrmv0td" path="res://music/stamp-sound-effect_gjFo0xH4.mp3" id="16_l3p1q"]
+[ext_resource type="AudioStream" uid="uid://blctxkmb4asst" path="res://music/boing.mp3" id="17_5ng1h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya4ey"]
+load_path = "res://.godot/imported/pot1.png-e84066fac3a3ae9ccc10cacf31982f85.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ids8r"]
+atlas = ExtResource("4_20k0i")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnhof"]
+atlas = ExtResource("5_l3p1q")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xevv4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ids8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnhof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0185"]
+load_path = "res://.godot/imported/pot2.png-475151860dd24d68e692aa240fbb61b8.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dxl4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkhk4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tc0x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nr4y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20k0i"]
+atlas = ExtResource("8_x28p4")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3p1q"]
+atlas = ExtResource("9_mxj3x")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ng1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20k0i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3p1q")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ue3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("8_lkhk4")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("9_8tc0x")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x28p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3p1q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu4jf"]
+atlas = ExtResource("13_7nr4y")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7ddy"]
+atlas = ExtResource("14_20k0i")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjg73"]
+atlas = ExtResource("14_20k0i")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0loja"]
+atlas = ExtResource("13_7nr4y")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mmw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu4jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7ddy")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjg73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0loja")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[node name="stamps" type="Node2D"]
+script = ExtResource("1_u7qhf")
+
+[node name="bg" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_upj0v")
+
+[node name="bg2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u7qhf")
+
+[node name="rqst_spr3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(76, 137)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_ya4ey")
+
+[node name="truc2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(417, 435)
+sprite_frames = SubResource("SpriteFrames_xevv4")
+autoplay = "default"
+
+[node name="argilelol" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(419, 361)
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_l0185")
+
+[node name="checker" type="Button" parent="."]
+offset_left = 58.0
+offset_top = 218.0
+offset_right = 206.0
+offset_bottom = 319.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_3dxl4")
+flat = true
+
+[node name="ch1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(118, 273)
+texture = ExtResource("6_n5dvh")
+
+[node name="ch_pressed" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(118, 273)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_n5dvh")
+
+[node name="stripes" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 384.0
+offset_right = 211.0
+offset_bottom = 500.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_lkhk4")
+flat = true
+
+[node name="st1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(116, 440)
+texture = ExtResource("7_p3rri")
+
+[node name="st1_pressed" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(116, 440)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_p3rri")
+
+[node name="waves" type="Button" parent="."]
+offset_left = 615.0
+offset_top = 150.0
+offset_right = 761.0
+offset_bottom = 265.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_8tc0x")
+flat = true
+
+[node name="w1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(681, 212)
+texture = ExtResource("8_3dxl4")
+
+[node name="w1_pressed" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(681, 212)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("8_3dxl4")
+
+[node name="trash" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 326.0
+offset_right = 764.0
+offset_bottom = 409.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_7nr4y")
+flat = true
+
+[node name="deletestamp" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(709, 368)
+sprite_frames = SubResource("SpriteFrames_5ng1h")
+autoplay = "default"
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 446.0
+offset_right = 800.0
+offset_bottom = 586.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_60ue3")
+flat = true
+
+[node name="home" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(731, 518)
+sprite_frames = SubResource("SpriteFrames_x28p4")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8tc0x")
+
+[node name="done" type="Button" parent="."]
+offset_left = 303.0
+offset_top = 527.0
+offset_right = 520.0
+offset_bottom = 586.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3p1q")
+flat = true
+
+[node name="continueicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(418, 557)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_5mmw4")
+autoplay = "default"
+
+[node name="stampsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_l3p1q")
+
+[node name="boing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_5ng1h")
+
+[connection signal="mouse_entered" from="checker" to="." method="_on_checker_mouse_entered"]
+[connection signal="mouse_exited" from="checker" to="." method="_on_checker_mouse_exited"]
+[connection signal="pressed" from="checker" to="." method="_on_checker_pressed"]
+[connection signal="mouse_entered" from="stripes" to="." method="_on_stripes_mouse_entered"]
+[connection signal="mouse_exited" from="stripes" to="." method="_on_stripes_mouse_exited"]
+[connection signal="pressed" from="stripes" to="." method="_on_stripes_pressed"]
+[connection signal="mouse_entered" from="waves" to="." method="_on_waves_mouse_entered"]
+[connection signal="mouse_exited" from="waves" to="." method="_on_waves_mouse_exited"]
+[connection signal="pressed" from="waves" to="." method="_on_waves_pressed"]
+[connection signal="mouse_entered" from="trash" to="." method="_on_trash_mouse_entered"]
+[connection signal="mouse_exited" from="trash" to="." method="_on_trash_mouse_exited"]
+[connection signal="pressed" from="trash" to="." method="_on_trash_pressed"]
+[connection signal="mouse_entered" from="mainmenu" to="." method="_on_mainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="mainmenu" to="." method="_on_mainmenu_mouse_exited"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="mouse_entered" from="done" to="." method="_on_done_mouse_entered"]
+[connection signal="mouse_exited" from="done" to="." method="_on_done_mouse_exited"]
+[connection signal="pressed" from="done" to="." method="_on_done_pressed"]

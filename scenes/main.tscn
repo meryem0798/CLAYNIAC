@@ -1,18 +1,416 @@
-[gd_scene load_steps=24 format=3 uid="uid://n7jfo7bmlc0x"]
+[gd_scene load_steps=103 format=3 uid="uid://n7jfo7bmlc0x"]
 
+[ext_resource type="Script" uid="uid://b1r8lpsbg77jq" path="res://scenes/main.gd" id="1_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://dilswdsk61vvr" path="res://sprites/request_square.png" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://c0be8sqynn6im" path="res://sprites/bgs/walldeco.png" id="2_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://bekcrwr5r1wq7" path="res://sprites/pots/pot1.png" id="2_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://cynlvwsa7k8bo" path="res://sprites/argile/argile0.png" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dcv001a3phi2a" path="res://sprites/argile/argile0.png" id="5_tefeu"]
 [ext_resource type="Script" uid="uid://dyrp4kqnbs41f" path="res://scenes/rqst_spr.gd" id="5_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://duumhqeld8ujr" path="res://sprites/bgs/potterywheel.png" id="6_trceg"]
+[ext_resource type="Texture2D" uid="uid://b36sgf4hgr72f" path="res://sprites/bgs/wheel1.png" id="6_pibwh"]
+[ext_resource type="Texture2D" uid="uid://c8t2bxs4hi732" path="res://sprites/bgs/wheel2.png" id="7_c6pm6"]
 [ext_resource type="Script" uid="uid://de5vybmcg0dhg" path="res://scripts/argile.gd" id="8_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://inp2qbgx1pr" path="res://sprites/bgs/hands.png" id="10_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://dktp50or36l47" path="res://sprites/bgs/hands2.png" id="10_choun"]
 [ext_resource type="Texture2D" uid="uid://c1ubbw3k4p6my" path="res://sprites/bgs/handsleft.png" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://dnspwrbp3881o" path="res://sprites/bgs/handsright.png" id="12_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://x1pmqbmifmrx" path="res://sprites/bgs/handsup.png" id="13_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://lfoviq5231q3" path="res://scenes/dialog_manager.tscn" id="13_trceg"]
+[ext_resource type="Texture2D" uid="uid://jmwg52t40tqd" path="res://sprites/buttons/help.png" id="14_0ld40"]
+[ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="14_muem4"]
+[ext_resource type="Texture2D" uid="uid://2eu0h5jk0uow" path="res://sprites/buttons/up.png" id="14_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://dismyo1j03swt" path="res://sprites/buttons/undo2.png" id="14_yq6so"]
+[ext_resource type="Texture2D" uid="uid://dyksv4lvgwbsc" path="res://sprites/buttons/undo.png" id="15_fv21b"]
+[ext_resource type="Texture2D" uid="uid://upe1hbrkfsqh" path="res://sprites/buttons/help2.png" id="15_gqmmt"]
+[ext_resource type="AudioStream" uid="uid://bh8ddliaae76p" path="res://music/bwomp_jx6fNavG.mp3" id="15_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://buuyx2leiqg7c" path="res://sprites/buttons/up_pressed.png" id="15_vxglm"]
+[ext_resource type="Texture2D" uid="uid://dhpum80g4rme1" path="res://sprites/buttons/left.png" id="15_y6deb"]
+[ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="16_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://ci5710l8kmyqb" path="res://sprites/buttons/right.png" id="16_og1vs"]
+[ext_resource type="Texture2D" uid="uid://ddpunsqorkqaw" path="res://sprites/buttons/clear2.png" id="16_tel4y"]
+[ext_resource type="Texture2D" uid="uid://b2ymmru8mc35s" path="res://sprites/buttons/left_pressed.png" id="17_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://bj4fcns58wh2u" path="res://sprites/buttons/down.png" id="17_2wyq8"]
+[ext_resource type="Texture2D" uid="uid://ccntahn03omms" path="res://sprites/buttons/clear.png" id="17_qkpxi"]
+[ext_resource type="Texture2D" uid="uid://b4ssjveyi5wnd" path="res://sprites/buttons/right_pressed.png" id="19_yq6so"]
+[ext_resource type="Texture2D" uid="uid://dilq53rur1mjx" path="res://sprites/buttons/down_pressed.png" id="21_fv21b"]
+[ext_resource type="Texture2D" uid="uid://cw1hsi8xqqc0i" path="res://sprites/buttons/continue2.png" id="26_5q0nq"]
+[ext_resource type="Texture2D" uid="uid://xg7li24sm2mn" path="res://sprites/buttons/continue.png" id="32_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://dn16i3m442pyk" path="res://music/helpring.mp3" id="34_dgi5k"]
+[ext_resource type="AudioStream" uid="uid://np63pqmte11l" path="res://music/reverse2.mp3" id="35_j8jky"]
+[ext_resource type="AudioStream" uid="uid://blctxkmb4asst" path="res://music/boing.mp3" id="36_kmb1v"]
+[ext_resource type="AudioStream" uid="uid://jciqawf4c2ff" path="res://music/knock.mp3" id="37_fuf3a"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya4ey"]
+load_path = "res://.godot/imported/pot1.png-e84066fac3a3ae9ccc10cacf31982f85.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ids8r"]
+atlas = ExtResource("6_pibwh")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnhof"]
+atlas = ExtResource("7_c6pm6")
+region = Rect2(0, 0, 391, 194)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v6qk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ids8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnhof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tel4y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chjal"]
+atlas = ExtResource("14_yq6so")
+region = Rect2(0, 0, 72, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjqg0"]
+atlas = ExtResource("15_fv21b")
+region = Rect2(0, 0, 72, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vchkt"]
+atlas = ExtResource("15_fv21b")
+region = Rect2(0, 0, 72, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
+atlas = ExtResource("14_yq6so")
+region = Rect2(0, 0, 72, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vc5cj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chjal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjqg0")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vchkt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txyw0")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0nq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
+atlas = ExtResource("16_tel4y")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
+atlas = ExtResource("17_qkpxi")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1g6"]
+atlas = ExtResource("17_qkpxi")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2jfr"]
+atlas = ExtResource("16_tel4y")
+region = Rect2(0, 0, 86, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjg73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvyfr")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1g6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2jfr")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm3ni"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f3dj"]
+atlas = ExtResource("15_vxglm")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxglm"]
+atlas = ExtResource("14_pm3ni")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkpxi"]
+atlas = ExtResource("15_vxglm")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv21b"]
+atlas = ExtResource("14_pm3ni")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2f3dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f3dj")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxglm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkpxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv21b")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6deb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuf3a"]
+atlas = ExtResource("17_2f3dj")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq6so"]
+atlas = ExtResource("15_y6deb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgi5k"]
+atlas = ExtResource("17_2f3dj")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pibwh"]
+atlas = ExtResource("15_y6deb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fv21b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuf3a")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq6so")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgi5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pibwh")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og1vs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6pm6"]
+atlas = ExtResource("19_yq6so")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tel4y"]
+atlas = ExtResource("16_og1vs")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8jky"]
+atlas = ExtResource("19_yq6so")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5he1u"]
+atlas = ExtResource("16_og1vs")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkpxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6pm6")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tel4y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8jky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5he1u")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wyq8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5poiv"]
+atlas = ExtResource("21_fv21b")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q0nq"]
+atlas = ExtResource("17_2wyq8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmb1v"]
+atlas = ExtResource("21_fv21b")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cjbq"]
+atlas = ExtResource("17_2wyq8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dgi5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5poiv")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q0nq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmb1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cjbq")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkpxi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu4jf"]
+atlas = ExtResource("26_5q0nq")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7ddy"]
+atlas = ExtResource("32_qkpxi")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjg73"]
+atlas = ExtResource("32_qkpxi")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0loja"]
+atlas = ExtResource("26_5q0nq")
+region = Rect2(0, 0, 286, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu4jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu4jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7ddy")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjg73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0loja")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
 atlas = ExtResource("10_a8y0u")
@@ -105,7 +503,68 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8jky"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6deb"]
+atlas = ExtResource("14_0ld40")
+region = Rect2(0, 0, 79, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og1vs"]
+atlas = ExtResource("15_gqmmt")
+region = Rect2(0, 0, 79, 109)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wyq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6deb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og1vs")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("14_muem4")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("16_jbj1t")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm3ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
 [node name="main" type="Node2D"]
+script = ExtResource("1_a8y0u")
 
 [node name="bg" type="TextureRect" parent="."]
 texture_filter = 1
@@ -138,86 +597,213 @@ texture = ExtResource("1_sugp2")
 texture_filter = 1
 position = Vector2(76, 137)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_jyhfs")
+texture = SubResource("CompressedTexture2D_ya4ey")
 script = ExtResource("5_ya4ey")
 
-[node name="truc" type="Sprite2D" parent="."]
+[node name="truc" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(396, 207)
-texture = ExtResource("6_trceg")
+position = Vector2(417, 435)
+sprite_frames = SubResource("SpriteFrames_1v6qk")
+autoplay = "default"
+frame_progress = 0.929579
 
 [node name="argile" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(399, 168)
-scale = Vector2(3, 3)
+position = Vector2(419, 361)
+scale = Vector2(2, 2)
 texture = ExtResource("5_tefeu")
 script = ExtResource("8_ya4ey")
 
-[node name="arms" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(278, 334)
-sprite_frames = SubResource("SpriteFrames_jkv2x")
-animation = &"up"
-autoplay = "default"
-
 [node name="undo" type="Button" parent="."]
-offset_left = 710.0
-offset_top = 292.0
-offset_right = 759.0
-offset_bottom = 323.0
-text = "undo"
+offset_left = 614.0
+offset_top = 255.0
+offset_right = 680.0
+offset_bottom = 336.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_tel4y")
+flat = true
+
+[node name="undoicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(648, 288)
+sprite_frames = SubResource("SpriteFrames_vc5cj")
+animation = &"clicked"
 
 [node name="clear" type="Button" parent="."]
-offset_left = 721.0
-offset_top = 361.0
-offset_right = 767.0
-offset_bottom = 392.0
-text = "clear"
+offset_left = 700.0
+offset_top = 353.0
+offset_right = 782.0
+offset_bottom = 428.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_5q0nq")
+flat = true
+
+[node name="clearicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(740, 366)
+sprite_frames = SubResource("SpriteFrames_bjg73")
+autoplay = "default"
 
 [node name="btn_up" type="Button" parent="."]
-offset_left = 65.0
-offset_top = 280.0
-offset_right = 94.0
-offset_bottom = 311.0
-text = "up"
+offset_left = 90.0
+offset_top = 225.0
+offset_right = 161.0
+offset_bottom = 305.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_pm3ni")
+flat = true
+
+[node name="up" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(119, 279)
+sprite_frames = SubResource("SpriteFrames_2f3dj")
+animation = &"click"
+autoplay = "default"
 
 [node name="btn_left" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 311.0
-offset_right = 79.0
-offset_bottom = 342.0
-text = "left"
+offset_left = 11.0
+offset_top = 276.0
+offset_right = 88.0
+offset_bottom = 352.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_y6deb")
+flat = true
+
+[node name="left" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(65, 315)
+sprite_frames = SubResource("SpriteFrames_fv21b")
+animation = &"click"
+autoplay = "default"
 
 [node name="btn_right" type="Button" parent="."]
-offset_left = 80.0
-offset_top = 311.0
-offset_right = 125.0
-offset_bottom = 342.0
-text = "right"
+offset_left = 162.0
+offset_top = 274.0
+offset_right = 240.0
+offset_bottom = 353.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_og1vs")
+flat = true
+
+[node name="right" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(209, 316)
+sprite_frames = SubResource("SpriteFrames_qkpxi")
+animation = &"click"
+autoplay = "default"
 
 [node name="btn_down" type="Button" parent="."]
-offset_left = 57.0
-offset_top = 342.0
-offset_right = 108.0
-offset_bottom = 373.0
-text = "down"
+offset_left = 92.0
+offset_top = 306.0
+offset_right = 163.0
+offset_bottom = 386.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_2wyq8")
+flat = true
+
+[node name="down" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(126, 338)
+sprite_frames = SubResource("SpriteFrames_dgi5k")
+animation = &"click"
+autoplay = "default"
 
 [node name="finish" type="Button" parent="."]
-offset_left = 380.0
+offset_left = 303.0
 offset_top = 530.0
-offset_right = 440.0
-offset_bottom = 561.0
-text = "FINISH"
+offset_right = 523.0
+offset_bottom = 583.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_qkpxi")
+flat = true
 
+[node name="continueicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(418, 557)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_bu4jf")
+autoplay = "default"
+
+[node name="arms" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(278, 365)
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+autoplay = "default"
+
+[node name="help" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 454.0
+offset_right = 116.0
+offset_bottom = 597.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_j8jky")
+flat = true
+
+[node name="helpicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(62, 518)
+sprite_frames = SubResource("SpriteFrames_2wyq8")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="ring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_dgi5k")
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 662.0
+offset_top = 446.0
+offset_right = 800.0
+offset_bottom = 586.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_muem4")
+flat = true
+
+[node name="home" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(731, 518)
+sprite_frames = SubResource("SpriteFrames_pm3ni")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_fuf3a")
+
+[node name="DialogUI" parent="." instance=ExtResource("13_trceg")]
+
+[node name="soundeffect1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_jkv2x")
+
+[node name="reverse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("35_j8jky")
+
+[node name="boing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_kmb1v")
+
+[connection signal="mouse_entered" from="undo" to="." method="_on_undo_mouse_entered"]
+[connection signal="mouse_exited" from="undo" to="." method="_on_undo_mouse_exited"]
+[connection signal="pressed" from="undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="undo" to="argile" method="_on_undo_pressed"]
+[connection signal="mouse_entered" from="clear" to="." method="_on_clear_mouse_entered"]
+[connection signal="mouse_exited" from="clear" to="." method="_on_clear_mouse_exited"]
+[connection signal="pressed" from="clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="clear" to="requests/rqst_spr" method="_on_clear_pressed"]
 [connection signal="pressed" from="clear" to="argile" method="_on_clear_pressed"]
+[connection signal="button_up" from="btn_up" to="argile" method="_on_btn_up_button_up"]
+[connection signal="mouse_entered" from="btn_up" to="." method="_on_btn_up_mouse_entered"]
+[connection signal="mouse_exited" from="btn_up" to="." method="_on_btn_up_mouse_exited"]
 [connection signal="pressed" from="btn_up" to="requests/rqst_spr" method="_on_btn_up_pressed"]
 [connection signal="pressed" from="btn_up" to="argile" method="_on_btn_up_pressed"]
+[connection signal="mouse_entered" from="btn_left" to="." method="_on_btn_left_mouse_entered"]
+[connection signal="mouse_exited" from="btn_left" to="." method="_on_btn_left_mouse_exited"]
 [connection signal="pressed" from="btn_left" to="requests/rqst_spr" method="_on_btn_left_pressed"]
 [connection signal="pressed" from="btn_left" to="argile" method="_on_btn_left_pressed"]
+[connection signal="mouse_entered" from="btn_right" to="." method="_on_btn_right_mouse_entered"]
+[connection signal="mouse_exited" from="btn_right" to="." method="_on_btn_right_mouse_exited"]
 [connection signal="pressed" from="btn_right" to="requests/rqst_spr" method="_on_btn_right_pressed"]
 [connection signal="pressed" from="btn_right" to="argile" method="_on_btn_right_pressed"]
+[connection signal="mouse_entered" from="btn_down" to="." method="_on_btn_down_mouse_entered"]
+[connection signal="mouse_exited" from="btn_down" to="." method="_on_btn_down_mouse_exited"]
 [connection signal="pressed" from="btn_down" to="requests/rqst_spr" method="_on_btn_down_pressed"]
 [connection signal="pressed" from="btn_down" to="argile" method="_on_btn_down_pressed"]
+[connection signal="mouse_entered" from="finish" to="." method="_on_finish_mouse_entered"]
+[connection signal="mouse_exited" from="finish" to="." method="_on_finish_mouse_exited"]
 [connection signal="pressed" from="finish" to="requests/rqst_spr" method="_on_finish_pressed"]
+[connection signal="mouse_entered" from="help" to="." method="_on_help_mouse_entered"]
+[connection signal="mouse_exited" from="help" to="." method="_on_help_mouse_exited"]
+[connection signal="pressed" from="help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="help" to="requests/rqst_spr" method="_on_help_pressed"]
+[connection signal="mouse_entered" from="mainmenu" to="." method="_on_mainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="mainmenu" to="." method="_on_mainmenu_mouse_exited"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]

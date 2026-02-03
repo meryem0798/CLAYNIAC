@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwoh0rermmpxg"]
+
+[ext_resource type="Script" uid="uid://cknr0srcwouiu" path="res://scenes/music_player.gd" id="1_k52d1"]
+[ext_resource type="AudioStream" uid="uid://enkl47dmmg1j" path="res://music/little_cafe.wav" id="1_yvkaf"]
+
+[node name="music" type="Node"]
+script = ExtResource("1_k52d1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_yvkaf")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
