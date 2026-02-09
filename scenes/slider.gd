@@ -7,6 +7,7 @@ extends Control
 @onready var cursor: TextureRect = $Bar/Cursor
 var success_image: Image
 @onready var button: Button = $"../Button"
+@onready var help: Button = $"../help"
 
 @onready var live_1: AnimatedSprite2D = $"../live1"
 @onready var live_2: AnimatedSprite2D = $"../live2"
@@ -79,9 +80,16 @@ func _process(delta):
 		cursor.position.x = bar.size.x - cursor.size.x
 		direction = -1
 
-	if can_validate and game_started and (Input.is_action_just_pressed("validate") or Input.is_action_just_pressed("leftmouse")):
-		can_validate = false
-		check_result()
+	if can_validate and game_started:
+			var mouse_clicked = Input.is_action_just_pressed("leftmouse")
+			var key_pressed = Input.is_action_just_pressed("validate")
+			
+			if key_pressed or mouse_clicked:
+				if mouse_clicked and help.get_global_rect().has_point(get_global_mouse_position()):
+					return #2 ignore when lmb on help button lol
+				
+				can_validate = false
+				check_result()
 
 func check_result():
 	if is_cursor_on_visible_pixel(success_zone):
@@ -123,12 +131,23 @@ func lose_life():
 
 
 func _on_button_pressed() -> void:
+
+	if !lvl1_finished:
+		button.disabled = true
+		slider.visible = true
+		game_started = true
+
+func _ifconsignesvisibles() -> void:
 	consignes.visible = true
 	it.visible = true
 	firezone.visible = true
 	enter.visible = true
 	lmb.visible = true
-	if !lvl1_finished:
-		button.disabled = true
-		slider.visible = true
-		game_started = true
+
+func _on_help_pressed() -> void:
+	consignes.visible = !consignes.visible
+	var etat = consignes.visible
+	it.visible = etat
+	firezone.visible = etat
+	enter.visible = etat
+	lmb.visible = etat

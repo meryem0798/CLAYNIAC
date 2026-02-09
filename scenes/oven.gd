@@ -5,6 +5,8 @@ extends Node2D
 @onready var knock: AudioStreamPlayer2D = $knock
 @onready var firebutton: AnimatedSprite2D = $firebutton
 @onready var wood: AudioStreamPlayer2D = $wood
+@onready var helpicon: AnimatedSprite2D = $helpicon
+@onready var ring: AudioStreamPlayer2D = $ring
 
 func _ready() -> void:
 	rqst_spr_2.texture = GameManager.pot_demande
@@ -41,3 +43,15 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_mouse_exited() -> void:
 	firebutton.play("pressed")
+
+
+func _on_help_mouse_entered() -> void:
+	helpicon.play("pressed")
+
+
+func _on_help_mouse_exited() -> void:
+	helpicon.play("default")
+
+
+func _on_help_pressed() -> void:
+	ring.play()
