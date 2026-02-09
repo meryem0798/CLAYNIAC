@@ -6,10 +6,16 @@ extends Control
 @onready var bar: TextureRect = $Bar
 @onready var cursor: TextureRect = $Bar/Cursor
 var success_image: Image
+@onready var button: Button = $"../Button"
 
 @onready var live_1: AnimatedSprite2D = $"../live1"
 @onready var live_2: AnimatedSprite2D = $"../live2"
 @onready var live_3: AnimatedSprite2D = $"../live3"
+@onready var consignes: Label = $"../consignes"
+@onready var it: Label = $"../it"
+@onready var firezone: Label = $"../firezone"
+@onready var enter: Label = $"../ENTER"
+@onready var lmb: Label = $"../LMB"
 
 var game_started := false
 var direction := 1
@@ -117,6 +123,12 @@ func lose_life():
 
 
 func _on_button_pressed() -> void:
+	consignes.visible = true
+	it.visible = true
+	firezone.visible = true
+	enter.visible = true
+	lmb.visible = true
 	if !lvl1_finished:
+		button.disabled = true
 		slider.visible = true
 		game_started = true

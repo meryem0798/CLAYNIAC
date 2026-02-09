@@ -37,7 +37,6 @@ func _ready():
 		GameManager._update_pot_id() 
 	
 	var id = GameManager.pot_id
-	print("ID détecté : ", id) 
 
 	argilelol.texture = GameManager.pot_demande
 

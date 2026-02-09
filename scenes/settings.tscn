@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp1yttsmxp1jx"]
+
+[ext_resource type="Texture2D" uid="uid://bgophyvrakluy" path="res://sprites/bgs/bg2.png" id="1_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="2_6wm04"]
+[ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="3_f4mfi"]
+[ext_resource type="FontFile" uid="uid://bx13lnj8c1jnt" path="res://fonts/KatahdinRound.otf" id="4_es4n0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jscy8"]
+atlas = ExtResource("2_6wm04")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3ni"]
+atlas = ExtResource("3_f4mfi")
+region = Rect2(0, 0, 127, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gis3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jscy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3ni")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[node name="settings" type="Node2D"]
+
+[node name="bg" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 807.0
+offset_bottom = 610.0
+texture = ExtResource("1_f4mfi")
+
+[node name="mainmenu" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 144.0
+offset_bottom = 145.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_es4n0")
+flat = true
+
+[node name="home" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(62, 66)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_gis3k")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 93.0
+offset_top = 199.0
+offset_right = 326.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("4_es4n0")
+theme_override_font_sizes/font_size = 50
+text = "VOLUME"

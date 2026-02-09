@@ -36,8 +36,8 @@ func _on_mainmenu_mouse_exited() -> void:
 
 
 func _on_button_mouse_entered() -> void:
-	firebutton.play("pressed")
+	firebutton.play("default")
 
 
 func _on_button_mouse_exited() -> void:
-	firebutton.play("default")
+	firebutton.play("pressed")

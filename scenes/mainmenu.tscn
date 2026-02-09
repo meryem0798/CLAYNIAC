@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5cs3ck7u3ql5"]
+[gd_scene load_steps=14 format=3 uid="uid://b5cs3ck7u3ql5"]
 
 [ext_resource type="Script" uid="uid://s56k5sfdndkl" path="res://scenes/mainmenu.gd" id="1_3vvtq"]
 [ext_resource type="Texture2D" uid="uid://dqsxa847qos4n" path="res://sprites/bgs/menubg.png" id="2_7yvfd"]
@@ -6,8 +6,40 @@
 [ext_resource type="Texture2D" uid="uid://da8mh25advhbi" path="res://sprites/bgs/title.png" id="6_7yvfd"]
 [ext_resource type="Texture2D" uid="uid://1r623fqcn54a" path="res://sprites/buttons/menustartbutton2.png" id="6_85riq"]
 [ext_resource type="AudioStream" uid="uid://cjcr3psxrv7ef" path="res://music/shop-door-bell_dqBb3L5e.mp3" id="6_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://dkw0genjr7sbi" path="res://sprites/buttons/menusettingsgear.png" id="7_85riq"]
+[ext_resource type="Texture2D" uid="uid://cj316ag4gjjry" path="res://sprites/buttons/menusettingsgear2.png" id="8_wf3n4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h73c4"]
+atlas = ExtResource("7_85riq")
+region = Rect2(0, 0, 49, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uui5l"]
+atlas = ExtResource("8_wf3n4")
+region = Rect2(0, 0, 49, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hago"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h73c4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uui5l")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85riq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="mainmenu" type="Node2D"]
@@ -50,6 +82,24 @@ texture_filter = 1
 position = Vector2(395, 523)
 texture = ExtResource("6_85riq")
 
+[node name="gear" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(37, 42)
+sprite_frames = SubResource("SpriteFrames_4hago")
+autoplay = "default"
+
+[node name="settings" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 65.0
+offset_bottom = 68.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_85riq")
+flat = true
+
 [connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]

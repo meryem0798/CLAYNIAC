@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx4ps31x1gmpn"
-path="res://.godot/imported/pot5_ridges.png-4724320d1154172e07db8c323f90917f.ctex"
+uid="uid://dkw0genjr7sbi"
+path="res://.godot/imported/menusettingsgear.png-41bdcc6c5711ecc0288c3b373123e27d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pots/pot5_ridges.png"
-dest_files=["res://.godot/imported/pot5_ridges.png-4724320d1154172e07db8c323f90917f.ctex"]
+source_file="res://sprites/buttons/menusettingsgear.png"
+dest_files=["res://.godot/imported/menusettingsgear.png-41bdcc6c5711ecc0288c3b373123e27d.ctex"]
 
 [params]
 

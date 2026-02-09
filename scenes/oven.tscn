@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://m236reffi30n"]
+[gd_scene load_steps=37 format=3 uid="uid://m236reffi30n"]
 
 [ext_resource type="Script" uid="uid://dej7hxhihjl7" path="res://scenes/oven.gd" id="1_c6yvy"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_pgb8s"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rw2gqh711gj" path="res://sprites/buttons/heart.png" id="12_s8keg"]
 [ext_resource type="Texture2D" uid="uid://db1bn0fpud4q7" path="res://sprites/slider/sliderindicator.png" id="14_245vu"]
 [ext_resource type="AudioStream" uid="uid://dwh3sn2iyseat" path="res://music/wood-break-breaking-wood-sound-effect-sfx_RFHwtxAE.mp3" id="17_fwkt7"]
+[ext_resource type="FontFile" uid="uid://bx13lnj8c1jnt" path="res://fonts/KatahdinRound.otf" id="18_2mt0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xup18"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -197,7 +198,6 @@ texture_filter = 1
 position = Vector2(74, 318)
 sprite_frames = SubResource("SpriteFrames_vyrie")
 animation = &"pressed"
-autoplay = "default"
 
 [node name="rqst_spr2" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -228,10 +228,10 @@ texture = ExtResource("6_e8ppl")
 [node name="SuccessZone" type="TextureRect" parent="slider/Bar"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 5.00003
-offset_top = -1.25002
+offset_left = 5.0
+offset_top = -1.0
 offset_right = 669.0
-offset_bottom = 81.75
+offset_bottom = 82.0
 texture = ExtResource("7_b4w8p")
 
 [node name="kindaburnt" type="ColorRect" parent="slider/Bar"]
@@ -307,6 +307,74 @@ texture = ExtResource("14_245vu")
 
 [node name="wood" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_fwkt7")
+
+[node name="consignes" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 214.0
+offset_top = 412.0
+offset_right = 791.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0.633896, 0.610474, 0.40417, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_2mt0s")
+theme_override_font_sizes/font_size = 30
+text = "PRESS LMB OR ENTER
+WHEN \"IT\" IS ON THE 
+         FIRE ZONE"
+
+[node name="it" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 334.0
+offset_top = 452.0
+offset_right = 374.0
+offset_bottom = 489.0
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.917647, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_2mt0s")
+theme_override_font_sizes/font_size = 30
+text = "IT"
+
+[node name="firezone" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 304.0
+offset_top = 492.0
+offset_right = 376.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0.819608, 0.384314, 0.286275, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_2mt0s")
+theme_override_font_sizes/font_size = 30
+text = "FIRE"
+
+[node name="ENTER" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 466.0
+offset_top = 412.0
+offset_right = 572.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(0.773264, 0.751358, 0.551088, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_2mt0s")
+theme_override_font_sizes/font_size = 30
+text = "ENTER"
+
+[node name="LMB" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 330.0
+offset_top = 412.0
+offset_right = 402.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(0.772549, 0.752941, 0.552941, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("18_2mt0s")
+theme_override_font_sizes/font_size = 30
+text = "LMB"
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

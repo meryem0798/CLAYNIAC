@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx4ps31x1gmpn"
-path="res://.godot/imported/pot5_ridges.png-4724320d1154172e07db8c323f90917f.ctex"
+uid="uid://bgophyvrakluy"
+path="res://.godot/imported/bg2.png-4b41ddbc44fd681075c8fd83ce8a5884.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pots/pot5_ridges.png"
-dest_files=["res://.godot/imported/pot5_ridges.png-4724320d1154172e07db8c323f90917f.ctex"]
+source_file="res://sprites/bgs/bg2.png"
+dest_files=["res://.godot/imported/bg2.png-4b41ddbc44fd681075c8fd83ce8a5884.ctex"]
 
 [params]
 
