@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5cs3ck7u3ql5"]
+[gd_scene load_steps=8 format=3 uid="uid://b5cs3ck7u3ql5"]
 
 [ext_resource type="Script" uid="uid://s56k5sfdndkl" path="res://scenes/mainmenu.gd" id="1_3vvtq"]
 [ext_resource type="Texture2D" uid="uid://dqsxa847qos4n" path="res://sprites/bgs/menubg.png" id="2_7yvfd"]
@@ -9,33 +9,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wf3n4"]
-atlas = ExtResource("5_dfy5j")
-region = Rect2(0, 0, 500, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h73c4"]
-atlas = ExtResource("6_85riq")
-region = Rect2(0, 0, 500, 500)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uui5l"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wf3n4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h73c4")
-}],
-"loop": true,
-"name": &"pressed",
-"speed": 5.0
-}]
 
 [node name="mainmenu" type="Node2D"]
 script = ExtResource("1_3vvtq")
@@ -55,12 +28,6 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_7yvfd")
 flat = true
 
-[node name="playbutton" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(395, 523)
-sprite_frames = SubResource("SpriteFrames_uui5l")
-autoplay = "default"
-
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 offset_left = 84.0
@@ -72,6 +39,16 @@ texture = ExtResource("6_7yvfd")
 [node name="dring" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dfy5j")
 volume_db = -5.585
+
+[node name="start1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(395, 523)
+texture = ExtResource("5_dfy5j")
+
+[node name="start2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(395, 523)
+texture = ExtResource("6_85riq")
 
 [connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]

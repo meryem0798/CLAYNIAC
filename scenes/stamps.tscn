@@ -198,7 +198,7 @@ autoplay = "default"
 
 [node name="argilelol" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(419, 361)
+position = Vector2(416, 356)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_l0185")
 

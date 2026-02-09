@@ -609,7 +609,7 @@ frame_progress = 0.929579
 
 [node name="argile" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(419, 361)
+position = Vector2(416, 356)
 scale = Vector2(2, 2)
 texture = ExtResource("5_tefeu")
 script = ExtResource("8_ya4ey")

@@ -2,10 +2,18 @@ extends Sprite2D
 
 @onready var argile: Sprite2D = $"../../argile"
 var argile0_texture = preload("res://sprites/argile/argile0.png")
-@onready var finish: Button = $"../../finish"
+
 
 @onready var dialogue_ui: Control = $"../../DialogUI"
 @onready var continueicon: AnimatedSprite2D = $"../../continueicon"
+@onready var undo: Button = $"../../undo"
+@onready var clear: Button = $"../../clear"
+@onready var btn_up: Button = $"../../btn_up"
+@onready var btn_left: Button = $"../../btn_left"
+@onready var btn_right: Button = $"../../btn_right"
+@onready var btn_down: Button = $"../../btn_down"
+@onready var finish: Button = $"../../finish"
+@onready var help: Button = $"../../help"
 
 var pots = {
 	"pot1": [["up", "down"], ["up", "up", "down", "down", "down"]],
@@ -27,6 +35,10 @@ func _ready():
 	finish.visible = false
 	randomize()
 	pick_random_pot()
+	
+	await get_tree().process_frame
+	dialogue_ui.start(get_dialogue_key())
+	
 
 func pick_random_pot():
 	var keys = pots.keys()
@@ -51,8 +63,12 @@ func check_sequence() -> bool:
 	var combos = pots[current_pot]
 	for seq in combos:
 		if player_sequence == seq: 
+			dialogue_ui.visible = false
 			finish.visible = true
 			continueicon.visible = true
+			undo.disabled = true
+			clear.disabled = true
+			help.disabled = true
 			return true
 	return false
 

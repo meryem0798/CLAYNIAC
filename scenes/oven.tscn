@@ -188,6 +188,7 @@ offset_left = 24.0
 offset_top = 240.0
 offset_right = 126.0
 offset_bottom = 359.0
+focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxFlat_xup18")
 flat = true
 

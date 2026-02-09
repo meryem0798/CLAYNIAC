@@ -74,11 +74,11 @@ func _on_btn_down_mouse_exited() -> void:
 
 
 func _on_undo_mouse_entered() -> void:
-	undoicon.play("pressed")
+	undoicon.play("default")
 
 
 func _on_undo_mouse_exited() -> void:
-	undoicon.play("default")
+	undoicon.play("pressed")
 
 
 func _on_clear_mouse_entered() -> void:
