@@ -12,7 +12,7 @@ extends Node2D
 @onready var reverse: AudioStreamPlayer2D = $reverse
 @onready var boing: AudioStreamPlayer2D = $boing
 @onready var knock: AudioStreamPlayer2D = $knock
-
+#gittest
 func _ready():
 	MusicPlayer.play_music(preload("res://music/little_cafe.wav"))
 	continueicon.visible = false
