@@ -17,6 +17,7 @@ var success_image: Image
 @onready var firezone: Label = $"../firezone"
 @onready var enter: Label = $"../ENTER"
 @onready var lmb: Label = $"../LMB"
+@onready var bubble: TextureRect = $"../bubble"
 
 var game_started := false
 var direction := 1
@@ -138,6 +139,7 @@ func _on_button_pressed() -> void:
 		game_started = true
 
 func _ifconsignesvisibles() -> void:
+	bubble.visible = true
 	consignes.visible = true
 	it.visible = true
 	firezone.visible = true
@@ -147,6 +149,7 @@ func _ifconsignesvisibles() -> void:
 func _on_help_pressed() -> void:
 	consignes.visible = !consignes.visible
 	var etat = consignes.visible
+	bubble.visible = etat
 	it.visible = etat
 	firezone.visible = etat
 	enter.visible = etat

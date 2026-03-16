@@ -1,5 +1,7 @@
 extends Node2D
 @onready var paint: AnimatedSprite2D = $paint
+@onready var helpicon: AnimatedSprite2D = $helpicon
+@onready var ring: AudioStreamPlayer2D = $ring
 
 @onready var argilelol: Sprite2D = $argilelol
 #@onready var color_picker: ColorPickerButton = $ColorPickerButton
@@ -221,3 +223,15 @@ func _on_done_mouse_entered() -> void:
 
 func _on_done_mouse_exited() -> void:
 	finishbutton.play("default")
+
+
+func _on_help_mouse_entered() -> void:
+	helpicon.play("pressed")
+
+
+func _on_help_mouse_exited() -> void:
+	helpicon.play("default")
+
+
+func _on_help_pressed() -> void:
+	ring.play()

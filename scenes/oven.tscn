@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://m236reffi30n"]
+[gd_scene load_steps=45 format=3 uid="uid://m236reffi30n"]
 
 [ext_resource type="Script" uid="uid://dej7hxhihjl7" path="res://scenes/oven.gd" id="1_c6yvy"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_pgb8s"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://db1bn0fpud4q7" path="res://sprites/slider/sliderindicator.png" id="14_245vu"]
 [ext_resource type="AudioStream" uid="uid://dwh3sn2iyseat" path="res://music/wood-break-breaking-wood-sound-effect-sfx_RFHwtxAE.mp3" id="17_fwkt7"]
 [ext_resource type="FontFile" uid="uid://bx13lnj8c1jnt" path="res://fonts/KatahdinRound.otf" id="18_2mt0s"]
+[ext_resource type="Texture2D" uid="uid://glxuytwptghe" path="res://dialogues/thoughtbubble.png" id="18_7srog"]
 [ext_resource type="Texture2D" uid="uid://jmwg52t40tqd" path="res://sprites/buttons/help.png" id="19_v1lyb"]
 [ext_resource type="Texture2D" uid="uid://upe1hbrkfsqh" path="res://sprites/buttons/help2.png" id="20_7srog"]
 [ext_resource type="AudioStream" uid="uid://dn16i3m442pyk" path="res://music/helpring.mp3" id="21_2nh23"]
@@ -341,18 +342,27 @@ texture = ExtResource("14_245vu")
 [node name="wood" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_fwkt7")
 
+[node name="bubble" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 99.0
+offset_top = 2.0
+offset_right = 499.0
+offset_bottom = 320.0
+texture = ExtResource("18_7srog")
+
 [node name="consignes" type="Label" parent="."]
 visible = false
 texture_filter = 1
-offset_left = 214.0
-offset_top = 412.0
-offset_right = 791.0
-offset_bottom = 529.0
+offset_left = 144.0
+offset_top = 95.0
+offset_right = 721.0
+offset_bottom = 212.0
 theme_override_colors/font_color = Color(0.633896, 0.610474, 0.40417, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("18_2mt0s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "PRESS LMB OR ENTER
 WHEN \"IT\" IS ON THE 
          FIRE ZONE"
@@ -360,53 +370,53 @@ WHEN \"IT\" IS ON THE
 [node name="it" type="Label" parent="."]
 visible = false
 texture_filter = 1
-offset_left = 334.0
-offset_top = 452.0
-offset_right = 374.0
-offset_bottom = 489.0
+offset_left = 256.0
+offset_top = 132.0
+offset_right = 296.0
+offset_bottom = 169.0
 theme_override_colors/font_color = Color(0.619608, 0.537255, 0.917647, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("18_2mt0s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "IT"
 
 [node name="firezone" type="Label" parent="."]
 visible = false
 texture_filter = 1
-offset_left = 304.0
-offset_top = 492.0
-offset_right = 376.0
-offset_bottom = 529.0
+offset_left = 225.0
+offset_top = 169.0
+offset_right = 297.0
+offset_bottom = 206.0
 theme_override_colors/font_color = Color(0.819608, 0.384314, 0.286275, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("18_2mt0s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "FIRE"
 
 [node name="ENTER" type="Label" parent="."]
 visible = false
 texture_filter = 1
-offset_left = 466.0
-offset_top = 412.0
-offset_right = 572.0
-offset_bottom = 449.0
+offset_left = 379.0
+offset_top = 95.0
+offset_right = 485.0
+offset_bottom = 132.0
 theme_override_colors/font_color = Color(0.773264, 0.751358, 0.551088, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("18_2mt0s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "ENTER"
 
 [node name="LMB" type="Label" parent="."]
 visible = false
 texture_filter = 1
-offset_left = 330.0
-offset_top = 412.0
-offset_right = 402.0
-offset_bottom = 449.0
+offset_left = 252.0
+offset_top = 95.0
+offset_right = 324.0
+offset_bottom = 132.0
 theme_override_colors/font_color = Color(0.772549, 0.752941, 0.552941, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("18_2mt0s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "LMB"
 
 [node name="help" type="Button" parent="."]

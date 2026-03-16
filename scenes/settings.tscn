@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp1yttsmxp1jx"]
+[gd_scene load_steps=11 format=3 uid="uid://cp1yttsmxp1jx"]
 
 [ext_resource type="Texture2D" uid="uid://bgophyvrakluy" path="res://sprites/bgs/bg2.png" id="1_f4mfi"]
+[ext_resource type="Script" uid="uid://enho5sn8o0lj" path="res://scenes/settings.gd" id="1_gis3k"]
 [ext_resource type="Texture2D" uid="uid://dffvrs1jansut" path="res://sprites/buttons/mainmenu_2.png" id="2_6wm04"]
 [ext_resource type="Texture2D" uid="uid://4tnetqhgyd0q" path="res://sprites/buttons/mainmenu.png" id="3_f4mfi"]
 [ext_resource type="FontFile" uid="uid://bx13lnj8c1jnt" path="res://fonts/KatahdinRound.otf" id="4_es4n0"]
+[ext_resource type="AudioStream" uid="uid://jciqawf4c2ff" path="res://music/knock.mp3" id="6_83j8s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -36,6 +38,7 @@ animations = [{
 }]
 
 [node name="settings" type="Node2D"]
+script = ExtResource("1_gis3k")
 
 [node name="bg" type="TextureRect" parent="."]
 texture_filter = 1
@@ -67,3 +70,10 @@ offset_bottom = 260.0
 theme_override_fonts/font = ExtResource("4_es4n0")
 theme_override_font_sizes/font_size = 50
 text = "VOLUME"
+
+[node name="knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_83j8s")
+
+[connection signal="mouse_entered" from="mainmenu" to="." method="_on_mainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="mainmenu" to="." method="_on_mainmenu_mouse_exited"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]

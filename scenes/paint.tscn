@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://op6wimbh5dnr"]
+[gd_scene load_steps=82 format=3 uid="uid://op6wimbh5dnr"]
 
 [ext_resource type="Script" uid="uid://kap7dbfhvt6s" path="res://scenes/paint.gd" id="1_gm6b1"]
 [ext_resource type="Texture2D" uid="uid://bo2r1y72m7s8g" path="res://sprites/bgs/mur.png" id="1_vhmiv"]
@@ -28,6 +28,11 @@
 [ext_resource type="AudioStream" uid="uid://4auofytfxgwp" path="res://music/splat-sound-effect_DaCirwsx.mp3" id="26_w23o4"]
 [ext_resource type="AudioStream" uid="uid://blctxkmb4asst" path="res://music/boing.mp3" id="27_qnjdh"]
 [ext_resource type="AudioStream" uid="uid://b3ei1xe8tqkk5" path="res://music/cutting-cardboard-free-sound-effect-various-versions_w9xKmlKi.mp3" id="28_aic3k"]
+[ext_resource type="Texture2D" uid="uid://jmwg52t40tqd" path="res://sprites/buttons/help.png" id="29_npk0r"]
+[ext_resource type="Texture2D" uid="uid://upe1hbrkfsqh" path="res://sprites/buttons/help2.png" id="30_62f8g"]
+[ext_resource type="AudioStream" uid="uid://dn16i3m442pyk" path="res://music/helpring.mp3" id="31_klp3h"]
+[ext_resource type="FontFile" uid="uid://bx13lnj8c1jnt" path="res://fonts/KatahdinRound.otf" id="32_62f8g"]
+[ext_resource type="Texture2D" uid="uid://glxuytwptghe" path="res://dialogues/thoughtbubble.png" id="32_klp3h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ids8r"]
 atlas = ExtResource("4_fs4mh")
@@ -366,6 +371,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ngwx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6deb"]
+atlas = ExtResource("29_npk0r")
+region = Rect2(0, 0, 79, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og1vs"]
+atlas = ExtResource("30_62f8g")
+region = Rect2(0, 0, 79, 109)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtx4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6deb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og1vs")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
 [node name="paint" type="Node2D"]
 script = ExtResource("1_gm6b1")
 
@@ -497,78 +532,78 @@ sprite_frames = SubResource("SpriteFrames_klp3h")
 autoplay = "default"
 
 [node name="brush" type="Button" parent="."]
-offset_left = 103.0
-offset_top = 246.0
-offset_right = 209.0
-offset_bottom = 315.0
+offset_left = 177.0
+offset_top = 238.0
+offset_right = 283.0
+offset_bottom = 307.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_48do8")
 flat = true
 
 [node name="paint" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(156, 304)
+position = Vector2(230, 296)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_k5jqd")
 autoplay = "default"
 
 [node name="eraser" type="Button" parent="."]
-offset_left = 613.0
-offset_top = 242.0
-offset_right = 690.0
-offset_bottom = 358.0
+offset_left = 583.0
+offset_top = 235.0
+offset_right = 660.0
+offset_bottom = 351.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_c4cg7")
 flat = true
 
 [node name="erasericon" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(655, 302)
+position = Vector2(625, 295)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_qnjdh")
 animation = &"pressed"
 autoplay = "default"
 
 [node name="small" type="Button" parent="."]
-offset_left = 71.0
-offset_top = 389.0
-offset_right = 166.0
-offset_bottom = 424.0
+offset_left = 49.0
+offset_top = 227.0
+offset_right = 144.0
+offset_bottom = 262.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_8ccdb")
 flat = true
 
 [node name="smallicon" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(127, 433)
+position = Vector2(105, 271)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_w23o4")
 autoplay = "default"
 
 [node name="medium" type="Button" parent="."]
-offset_left = 57.0
-offset_top = 458.0
-offset_right = 156.0
-offset_bottom = 489.0
+offset_left = 35.0
+offset_top = 296.0
+offset_right = 134.0
+offset_bottom = 327.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_4a4lg")
 flat = true
 
 [node name="mediumicon" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(107, 478)
+position = Vector2(85, 316)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_tmstl")
 animation = &"pressed"
 autoplay = "default"
 
 [node name="big" type="Button" parent="."]
-offset_left = 53.0
-offset_top = 525.0
-offset_right = 144.0
-offset_bottom = 583.0
+offset_left = 31.0
+offset_top = 363.0
+offset_right = 122.0
+offset_bottom = 421.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_cbjuu")
 flat = true
 
 [node name="bigicon" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(101, 543)
+position = Vector2(79, 381)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_62f8g")
 autoplay = "default"
@@ -607,6 +642,51 @@ stream = ExtResource("27_qnjdh")
 stream = ExtResource("28_aic3k")
 volume_db = 17.42
 
+[node name="help" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 454.0
+offset_right = 116.0
+offset_bottom = 597.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ngwx")
+flat = true
+
+[node name="helpicon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(62, 518)
+sprite_frames = SubResource("SpriteFrames_dtx4n")
+animation = &"pressed"
+autoplay = "default"
+
+[node name="ring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_klp3h")
+
+[node name="bubble" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 464.0
+offset_top = 11.0
+offset_right = 864.0
+offset_bottom = 329.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("32_klp3h")
+
+[node name="consignes" type="Label" parent="bubble"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 57.3333
+offset_top = 74.6667
+offset_right = 634.333
+offset_bottom = 191.667
+theme_override_colors/font_color = Color(0.31414, 0.609442, 0.686258, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("32_62f8g")
+theme_override_font_sizes/font_size = 30
+text = "sign your work 
+by painting over 
+it!"
+
 [connection signal="pressed" from="paintbutton" to="." method="_on_paintbutton_pressed"]
 [connection signal="gui_input" from="DrawWindow/DrawArea" to="." method="_on_draw_area_gui_input"]
 [connection signal="mouse_entered" from="done" to="." method="_on_done_mouse_entered"]
@@ -630,3 +710,6 @@ volume_db = 17.42
 [connection signal="mouse_entered" from="mainmenu" to="." method="_on_mainmenu_mouse_entered"]
 [connection signal="mouse_exited" from="mainmenu" to="." method="_on_mainmenu_mouse_exited"]
 [connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="mouse_entered" from="help" to="." method="_on_help_mouse_entered"]
+[connection signal="mouse_exited" from="help" to="." method="_on_help_mouse_exited"]
+[connection signal="pressed" from="help" to="." method="_on_help_pressed"]

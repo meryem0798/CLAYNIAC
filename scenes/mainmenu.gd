@@ -33,7 +33,8 @@ func _on_play_mouse_exited() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	#play settings sound
+	Transition.fade_to_scene("res://scenes/settings.tscn")
 
 
 func _on_settings_mouse_entered() -> void:
