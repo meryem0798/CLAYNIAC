@@ -8,5 +8,6 @@ script = ExtResource("1_k52d1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_yvkaf")
+bus = &"BM"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

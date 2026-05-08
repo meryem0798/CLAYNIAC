@@ -14,3 +14,8 @@ func _on_mainmenu_mouse_entered() -> void:
 
 func _on_mainmenu_mouse_exited() -> void:
 	home.play("default")
+
+
+func _on_h_slider_changed() -> void:
+	pass
+	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BM"), linear_to_db(value))
